@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-<title>Secure HLS/DASH Player</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Secure Fullscreen Player</title>
 
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    overflow: hidden;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
 
-  .player-wrapper {
-    position: fixed;
-    inset: 0;
-    background: black;
-  }
+/* Player container */
+.player-wrapper {
+  position: fixed;
+  inset: 0;
+  background: black;
+}
 
-  #video-player, #clappr-player {
-    width: 100%;
-    height: 100%;
-  }
+/* JW / Clappr container */
+#video-player, #clappr-player {
+  width: 100vw;
+  height: 100vh;
+}
 
-  /* Control buttons */
-  .controls {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    z-index: 9999;
-    display: flex;
-    gap: 10px;
-  }
+/* Force video full cover */
+video {
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+  background: black;
+}
 
-  .controls button {
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 8px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
+/* Controls */
+.controls {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 9999;
+  display: flex;
+  gap: 10px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.controls.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.controls button {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+}
 </style>
 </head>
 
@@ -55,9 +72,9 @@
   <div id="clappr-player" style="display:none;"></div>
 </div>
 
-<div class="controls">
-  <button onclick="toggleFullscreen()">⛶ Fullscreen</button>
-  <button onclick="toggleFit()">↔ Fit</button>
+<div class="controls" id="controls">
+  <button onclick="toggleFullscreen()">⛶</button>
+  <button onclick="toggleFit()">↔</button>
 </div>
 
 <!-- JW Player -->
@@ -69,40 +86,18 @@
 
 <script>
 let fitMode = "cover";
-let jwInstance = null;
-let clapprInstance = null;
+let hideTimer;
 
 function getQueryParams() {
-  const params = new URLSearchParams(window.location.search);
+  const p = new URLSearchParams(window.location.search);
   return {
-    url: params.get("mpd"),
-    keyId: params.get("keyId"),
-    key: params.get("key")
+    url: p.get("mpd"),
+    keyId: p.get("keyId"),
+    key: p.get("key")
   };
 }
 
-function isHLS(url) {
-  return url && url.endsWith(".m3u8");
-}
-
-function isDASH(url) {
-  return url && url.endsWith(".mpd");
-}
-
-function applyFit(mode) {
-  const videos = document.querySelectorAll("video");
-  videos.forEach(v => {
-    v.style.objectFit = mode;
-    v.style.width = "100%";
-    v.style.height = "100%";
-  });
-}
-
-function toggleFit() {
-  fitMode = fitMode === "cover" ? "contain" : "cover";
-  applyFit(fitMode);
-}
-
+/* ===== FULLSCREEN ===== */
 function toggleFullscreen() {
   const el = document.documentElement;
   if (!document.fullscreenElement) {
@@ -112,17 +107,50 @@ function toggleFullscreen() {
   }
 }
 
+/* ===== FIT MODE ===== */
+function toggleFit() {
+  fitMode = fitMode === "cover" ? "contain" : "cover";
+  document.querySelectorAll("video").forEach(v => {
+    v.style.objectFit = fitMode;
+  });
+}
+
+/* ===== AUTO HIDE CONTROLS ===== */
+function showControls() {
+  const c = document.getElementById("controls");
+  c.classList.remove("hide");
+  clearTimeout(hideTimer);
+  hideTimer = setTimeout(() => {
+    c.classList.add("hide");
+  }, 3000);
+}
+
+document.addEventListener("mousemove", showControls);
+document.addEventListener("touchstart", showControls);
+
+/* ===== FORCE RESIZE (MOBILE FIX) ===== */
+function forceResize() {
+  document.querySelectorAll("video").forEach(v => {
+    v.style.width = window.innerWidth + "px";
+    v.style.height = window.innerHeight + "px";
+  });
+}
+window.addEventListener("resize", forceResize);
+window.addEventListener("orientationchange", () => {
+  setTimeout(forceResize, 500);
+});
+
+/* ===== PLAYER ===== */
 function playStream(url, keyId, key) {
   if (!url) {
     document.body.innerHTML =
-      "<p style='color:white;text-align:center;'>No stream URL provided</p>";
+      "<p style='color:white;text-align:center;'>No Stream URL</p>";
     return;
   }
 
   // JW Player
   if (typeof jwplayer !== "undefined") {
-    document.getElementById("video-player").style.display = "block";
-    jwInstance = jwplayer("video-player").setup({
+    jwplayer("video-player").setup({
       file: url,
       width: "100%",
       height: "100%",
@@ -130,13 +158,10 @@ function playStream(url, keyId, key) {
       stretching: "fill"
     });
 
-    if (key && keyId) {
-      jwInstance.setup({
-        drm: { clearkey: { keyId, key } }
-      });
-    }
-
-    jwInstance.on("ready", () => applyFit(fitMode));
+    jwplayer().on("ready", () => {
+      forceResize();
+      showControls();
+    });
     return;
   }
 
@@ -157,8 +182,11 @@ function playStream(url, keyId, key) {
     config.plugins = [ClapprDRM];
   }
 
-  clapprInstance = new Clappr.Player(config);
-  setTimeout(() => applyFit(fitMode), 1000);
+  new Clappr.Player(config);
+  setTimeout(() => {
+    forceResize();
+    showControls();
+  }, 1000);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
