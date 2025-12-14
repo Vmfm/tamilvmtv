@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Secure HLS/DASH Player</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Live Player</title>
 
 <style>
-body {
-  margin: 0;
-  background: #000;
-  height: 100vh;
-  overflow: hidden;
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  background:#000;
+  overflow:hidden;
 }
 
-/* Player wrapper */
-#player-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: black;
+#player-wrapper{
+  position:relative;
+  width:100%;
+  height:100%;
 }
 
-/* Force video fill */
-#video-player video,
-#clappr-player video {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;   /* 🔥 FILL screen */
+/* Force fill */
+video{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover;
+  background:#000;
 }
 
-/* Control bar */
-#controls {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 9999;
-  display: flex;
-  gap: 8px;
-  background: rgba(0,0,0,0.6);
-  padding: 6px 8px;
-  border-radius: 6px;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+/* Controls */
+#controls{
+  position:absolute;
+  top:10px;
+  right:10px;
+  display:flex;
+  gap:6px;
+  padding:6px;
+  background:rgba(0,0,0,.6);
+  border-radius:6px;
+  z-index:999;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
 }
 
-/* Show controls */
-#controls.show {
-  opacity: 1;
-  pointer-events: auto;
+#controls.show{
+  opacity:1;
+  pointer-events:auto;
 }
 
-#controls button,
-#controls select {
-  background: #111;
-  color: #fff;
-  border: 1px solid #444;
-  padding: 5px 8px;
-  font-size: 13px;
-  cursor: pointer;
-  border-radius: 4px;
+#controls button,select{
+  background:#111;
+  color:#fff;
+  border:1px solid #444;
+  padding:4px 6px;
+  border-radius:4px;
+}
+
+/* Message */
+#msg{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:14px;
+  background:#000;
+  z-index:998;
+  display:none;
 }
 </style>
 </head>
@@ -69,100 +78,120 @@ body {
 
 <div id="player-wrapper">
   <div id="controls">
-    <select id="aspectRatio">
-      <option value="fill">Fill</option>
+    <select id="fit">
+      <option value="cover">Fill</option>
       <option value="contain">Fit</option>
     </select>
-    <button id="fullscreenBtn">⛶</button>
+    <button id="fs">⛶</button>
   </div>
 
-  <div id="video-player"></div>
-  <div id="clappr-player" style="display:none;"></div>
+  <div id="msg">Connecting to live stream…</div>
+
+  <div id="jw"></div>
+  <div id="clappr" style="display:none"></div>
+  <video id="native" controls playsinline style="display:none"></video>
 </div>
 
-<!-- JW Player -->
+<!-- Players -->
 <script src="https://cdn.jwplayer.com/libraries/MAaRkUjT.js"></script>
-
-<!-- Clappr -->
 <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/clappr-drm@latest/dist/clappr-drm.min.js"></script>
 
 <script>
-function getQueryParams() {
-  const params = new URLSearchParams(window.location.search);
-  return {
-    mpd: params.get("mpd"),
-    keyId: params.get("keyId"),
-    key: params.get("key")
-  };
-}
+const params = new URLSearchParams(location.search);
+const stream = params.get("url");
 
-function playStream(url, keyId, key) {
-  if (!url) return;
-
-  if (typeof jwplayer !== "undefined") {
-    jwplayer("video-player").setup({
-      file: url,
-      width: "100%",
-      height: "100%",
-      autostart: true,
-      stretching: "fill",
-      drm: key && keyId ? { clearkey: { keyId, key } } : undefined
-    });
-    return;
-  }
-
-  document.getElementById("clappr-player").style.display = "block";
-  new Clappr.Player({
-    source: url,
-    parentId: "#clappr-player",
-    autoPlay: true,
-    width: "100%",
-    height: "100%",
-    plugins: key && keyId ? [ClapprDRM] : [],
-    playback: key && keyId ? {
-      drm: { clearkey: { keys: [{ keyId, key }] } }
-    } : {}
-  });
-}
-
-/* Touch to show controls (Android friendly) */
-let hideTimer;
 const wrapper = document.getElementById("player-wrapper");
 const controls = document.getElementById("controls");
+const msg = document.getElementById("msg");
 
-wrapper.addEventListener("touchstart", showControls);
-wrapper.addEventListener("click", showControls);
+let retry = 0;
 
-function showControls() {
+/* Show controls on touch */
+wrapper.addEventListener("click",showControls);
+wrapper.addEventListener("touchstart",showControls);
+function showControls(){
   controls.classList.add("show");
-  clearTimeout(hideTimer);
-  hideTimer = setTimeout(() => {
-    controls.classList.remove("show");
-  }, 3000);
+  clearTimeout(window.ht);
+  window.ht = setTimeout(()=>controls.classList.remove("show"),3000);
 }
 
 /* Fullscreen */
-document.getElementById("fullscreenBtn").onclick = () => {
-  if (!document.fullscreenElement) {
-    wrapper.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
+fs.onclick=()=>{
+  !document.fullscreenElement?wrapper.requestFullscreen():document.exitFullscreen();
 };
 
-/* Aspect fit/fill */
-document.getElementById("aspectRatio").onchange = (e) => {
-  const fit = e.target.value === "contain" ? "contain" : "cover";
-  document.querySelectorAll("video").forEach(v => {
-    v.style.objectFit = fit;
+/* Fit / Fill */
+fit.onchange=e=>{
+  document.querySelectorAll("video").forEach(v=>v.style.objectFit=e.target.value);
+};
+
+/* PLAY LOGIC */
+function playJW(){
+  msg.style.display="flex";
+  jwplayer.defaults={hlshtml:true};
+
+  jwplayer("jw").setup({
+    file:stream,
+    width:"100%",
+    height:"100%",
+    autostart:true,
+    stretching:"fill",
+    mute:false
   });
-};
 
-window.addEventListener("DOMContentLoaded", () => {
-  const { mpd, keyId, key } = getQueryParams();
-  playStream(mpd, keyId, key);
-});
+  jwplayer().on("play",()=>msg.style.display="none");
+
+  jwplayer().on("error",()=>{
+    jwplayer().remove();
+    playClappr();
+  });
+}
+
+function playClappr(){
+  document.getElementById("jw").style.display="none";
+  document.getElementById("clappr").style.display="block";
+
+  const p = new Clappr.Player({
+    source:stream,
+    parentId:"#clappr",
+    autoPlay:true,
+    width:"100%",
+    height:"100%"
+  });
+
+  setTimeout(()=>{
+    if(!p.isPlaying()){
+      p.destroy();
+      playNative();
+    }
+  },5000);
+}
+
+function playNative(){
+  const v = document.getElementById("native");
+  v.style.display="block";
+  v.src=stream;
+  v.play().then(()=>msg.style.display="none")
+  .catch(()=>retryStream());
+}
+
+function retryStream(){
+  retry++;
+  if(retry>5){
+    msg.innerText="Live stream is offline";
+    return;
+  }
+  msg.innerText="Reconnecting…";
+  setTimeout(playJW,3000);
+}
+
+/* START */
+if(!stream){
+  msg.style.display="flex";
+  msg.innerText="No stream URL";
+}else{
+  playJW();
+}
 </script>
 
 </body>
