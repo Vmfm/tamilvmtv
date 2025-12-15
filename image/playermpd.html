@@ -95,7 +95,7 @@ const seek = document.getElementById("seek");
 /* ---------- GET URL PARAM ---------- */
 const params = new URLSearchParams(window.location.search);
 const streamURL = params.get("m3u8") || 
-                  "https://notvstream.in/tembletv/tembletv.m3u8";
+    
 
 /* ---------- LOAD HLS ---------- */
 if (Hls.isSupported()) {
