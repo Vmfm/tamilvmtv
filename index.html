@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamil VM Live TV</title>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<style>
+:root {
+  --bg: #0f0f0f;
+  --card: #1c1c1c;
+  --text: #ffffff;
+}
+.light {
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --text: #000000;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+/* Player */
+#player-container {
+  position: sticky;
+  top: 0;
+  background: #000;
+  z-index: 10;
+}
+video {
+  width: 100%;
+  height: 220px;
+  background: black;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.toggle {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Channels */
+.channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+.channel {
+  background: var(--card);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  padding: 8px;
+}
+.channel img {
+  width: 100%;
+  border-radius: 8px;
+}
+.channel span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="player-container">
+  <video id="video" controls autoplay playsinline></video>
+</div>
+
+<div class="header">
+  <h3>📺 Tamil VM Live TV</h3>
+  <button class="toggle" onclick="toggleMode()">🌙 / ☀</button>
+</div>
+
+<div class="channels">
+  <div class="channel" onclick="play('https://account21.livebox.co.in/oscartvhls/live.m3u8')">
+    <img src="https://vmfm.github.io/tamilvmtv/image/oscar-tv.jpg">
+    <span>Oscar TV</span>
+  </div>
+
+  <div class="channel" onclick="play('http://applelive.in/shatv/shatv.m3u8')">
+    <img src="https://vmfm.github.io/tamilvmtv/image/sha-tv-1.jpg">
+    <span>SHA TV</span>
+  </div>
+
+  <div class="channel" onclick="play('https://app.ashokadigital.net/app/7d1a23ef/index.m3u8')">
+    <img src="https://vmfm.github.io/tamilvmtv/image/amman-tv.jpg">
+    <span>Amman TV</span>
+  </div>
+
+  <div class="channel" onclick="play('https://notvstream.in/aasaitv/aasaitv.m3u8')">
+    <img src="https://vmfm.github.io/tamilvmtv/image/aasai-tv.jpg">
+    <span>Aasai TV</span>
+  </div>
+
+  <div class="channel" onclick="play('https://play.applelive.in/stv/stv.m3u8')">
+    <img src="https://vmfm.github.io/tamilvmtv/image/hai-tv.jpg">
+    <span>Hai TV</span>
+  </div>
+
+  <div class="channel" onclick="play('https://ipcloud.live/leotv/leotvhd/index.m3u8')">
+    <img src="https://vmfm.github.io/tamilvmtv/image/leo-tv.jpg">
+    <span>Leo TV</span>
+  </div>
+</div>
+
+<script>
+const video = document.getElementById("video");
+let hls;
+
+function play(url) {
+  if (Hls.isSupported()) {
+    if (hls) hls.destroy();
+    hls = new Hls();
+    hls.loadSource(url);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
+  } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    video.src = url;
+    video.play();
+  }
+}
+
+// Auto play first channel
+play("https://account21.livebox.co.in/oscartvhls/live.m3u8");
+
+function toggleMode() {
+  document.body.classList.toggle("light");
+}
+</script>
+
+</body>
+</html>
