@@ -12,88 +12,164 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style>
-body{background:#000;color:#fff}
+:root{
+ --bg:#000;
+ --card:#111;
+ --text:#fff;
+ --border:#333;
+}
+body.light{
+ --bg:#f5f5f5;
+ --card:#fff;
+ --text:#000;
+ --border:#ccc;
+}
+
+body{
+ background:var(--bg);
+ color:var(--text);
+ font-family:sans-serif;
+}
+
 .header{
- position:fixed;
- top:0;left:0;
- width:100%;
- background:#111;
- z-index:9999;
- padding:10px;
+ position:fixed;top:0;left:0;width:100%;
+ background:var(--card);
+ z-index:9999;padding:10px;
 }
+
 .video-js{width:100%;height:220px}
-.container{margin-top:260px}
+
+.main{margin-top:300px}
+
 .channel{
- border:1px solid #444;
+ border:1px solid var(--border);
+ background:var(--card);
  margin-bottom:10px;
- padding:5px;
- cursor:pointer;
  text-align:center;
+ cursor:pointer;
+ padding:5px;
 }
-.channel img{
- width:100%;
- height:120px;
- object-fit:contain;
-}
-.channel p{
+
+.channel img{width:100%;height:120px;object-fit:contain}
+
+.channel p{font-size:12px;margin:3px 0}
+
+.views{font-size:10px;color:#ff9800}
+
+.toggle-btn{
+ position:fixed;
+ top:15px;right:15px;
+ z-index:10000;
+ background:#ff9800;
+ color:#000;
+ border:none;
+ padding:5px 10px;
+ border-radius:20px;
  font-size:12px;
- margin:5px 0 0;
 }
 </style>
 </head>
 
 <body>
 
+<button class="toggle-btn" onclick="toggleTheme()">🌙 / ☀️</button>
+
 <!-- PLAYER -->
 <div class="header">
  <h4 class="text-warning text-center">TAMIL VM LIVE TV</h4>
- <video id="tvPlayer" class="video-js vjs-default-skin" controls autoplay></video>
+ <video id="tvPlayer" class="video-js vjs-default-skin" controls autoplay playsinline></video>
 </div>
 
-<!-- CHANNEL GRID -->
-<div class="container">
+<!-- CONTENT -->
+<div class="container main">
+
+ <div class="row mb-2">
+  <div class="col-6">
+   <input type="text" id="search" class="form-control" placeholder="Search channel">
+  </div>
+  <div class="col-6">
+   <select id="category" class="form-control">
+    <option value="all">All Categories</option>
+   </select>
+  </div>
+ </div>
+
  <div class="row" id="channelList"></div>
+
 </div>
 
 <script>
-const M3U_URL = "https://vmfm.github.io/tamilvmtv/live/channels.m3u";
-const player = videojs('tvPlayer');
+const M3U_URL="https://vmfm.github.io/tamilvmtv/live/channels.m3u";
+const player=videojs('tvPlayer');
+let allChannels=[];
+let views=JSON.parse(localStorage.getItem('views')||'{}');
 
-fetch(M3U_URL)
- .then(res => res.text())
- .then(data => {
-   const lines = data.split('\n');
-   let channels = [];
+/* THEME */
+if(localStorage.getItem('theme')==='light'){
+ document.body.classList.add('light');
+}
+function toggleTheme(){
+ document.body.classList.toggle('light');
+ localStorage.setItem('theme',
+  document.body.classList.contains('light')?'light':'dark');
+}
 
-   for (let i = 0; i < lines.length; i++) {
-     if (lines[i].startsWith('#EXTINF')) {
-       const name = lines[i].split(',').pop().trim();
-       const logoMatch = lines[i].match(/tvg-logo="(.*?)"/);
-       const logo = logoMatch ? logoMatch[1] : 'https://via.placeholder.com/300x200?text=TV';
-       const url = lines[i + 1]?.trim();
+/* LOAD M3U */
+fetch(M3U_URL).then(r=>r.text()).then(data=>{
+ const lines=data.split('\n');
+ for(let i=0;i<lines.length;i++){
+  if(lines[i].startsWith('#EXTINF')){
+   const name=lines[i].split(',').pop().trim();
+   const logo=(lines[i].match(/tvg-logo="(.*?)"/)||[])[1]||'https://via.placeholder.com/300x200?text=TV';
+   const group=(lines[i].match(/group-title="(.*?)"/)||[])[1]||'Other';
+   const url=lines[i+1]?.trim();
+   if(url) allChannels.push({name,logo,group,url});
+  }
+ }
+ buildCategories();
+ render();
+});
 
-       if (url && url.startsWith('http')) {
-         channels.push({ name, logo, url });
-       }
-     }
-   }
+/* CATEGORY */
+function buildCategories(){
+ [...new Set(allChannels.map(c=>c.group))]
+ .forEach(g=>$('#category').append(`<option>${g}</option>`));
+}
 
-   channels.forEach(ch => {
-     $('#channelList').append(`
-       <div class="col-4 col-md-2">
-         <div class="channel" data-src="${ch.url}">
-           <img src="${ch.logo}">
-           <p>${ch.name}</p>
-         </div>
-       </div>
-     `);
-   });
+/* RENDER */
+function render(){
+ const s=$('#search').val().toLowerCase();
+ const c=$('#category').val();
+ $('#channelList').html('');
+ allChannels.filter(x=>
+  (c==='all'||x.group===c) &&
+  x.name.toLowerCase().includes(s)
+ ).forEach(x=>{
+  const count=views[x.name]||0;
+  $('#channelList').append(`
+   <div class="col-4 col-md-2">
+    <div class="channel" data-src="${x.url}" data-name="${x.name}">
+     <img loading="lazy" src="${x.logo}">
+     <p>${x.name}</p>
+     <div class="views">👁 ${count} views</div>
+    </div>
+   </div>
+  `);
  });
+}
 
-$(document).on('click', '.channel', function(){
- player.src({ src: $(this).data('src'), type: 'application/x-mpegURL' });
+$('#search,#category').on('input change',render);
+
+/* PLAY + COUNT */
+$(document).on('click','.channel',function(){
+ const name=$(this).data('name');
+ views[name]=(views[name]||0)+1;
+ localStorage.setItem('views',JSON.stringify(views));
+ render();
+ player.src({src:$(this).data('src'),type:'application/x-mpegURL'});
  player.play();
- window.scrollTo({ top: 0, behavior: 'smooth' });
+ player.requestFullscreen?.();
+ window.scrollTo({top:0,behavior:'smooth'});
 });
 </script>
 
