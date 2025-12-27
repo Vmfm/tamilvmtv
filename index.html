@@ -5,104 +5,82 @@
 <title>TAMIL VM LIVE TV</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style>
 body{background:#000;color:#fff}
-.tv-header{
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  background:#111;
-  z-index:9999;
-  padding:10px;
+.header{
+ position:fixed;top:0;left:0;width:100%;z-index:9999;
+ background:#111;padding:10px
 }
 .video-js{width:100%;height:220px}
-.tv-container{margin-top:260px}
-.channel-box{
-  border:1px solid #444;
-  margin-bottom:10px;
-  padding:5px;
-  text-align:center;
-  cursor:pointer;
+.container{margin-top:260px}
+.channel{
+ border:1px solid #444;margin-bottom:10px;
+ text-align:center;cursor:pointer;padding:5px
 }
-.channel-box img{
-  width:100%;
-  height:120px;
-  object-fit:contain;
-}
-.channel-box p{
-  font-size:12px;
-  margin:5px 0 0;
-}
+.channel img{width:100%;height:120px;object-fit:contain}
+.channel p{font-size:12px;margin:5px 0}
 </style>
 </head>
 
 <body>
 
 <!-- PLAYER -->
-<div class="tv-header">
-  <h4 class="text-center text-warning">TAMIL VM LIVE TV</h4>
-  <video id="tvPlayer" class="video-js vjs-default-skin" controls autoplay preload="auto">
-    <source src="https://anywhere.pwisetthon.com/http://server.mindspell.in/live/devitv/index.m3u8" type="application/x-mpegURL">
-  </video>
+<div class="header">
+ <h4 class="text-warning text-center">TAMIL VM LIVE TV</h4>
+ <video id="tvPlayer" class="video-js vjs-default-skin" controls autoplay></video>
 </div>
 
 <!-- CHANNEL LIST -->
-<div class="container tv-container">
-  <div class="row">
-
-    <!-- CHANNEL 1 -->
-    <div class="col-4 col-md-2">
-      <div class="channel-box"
-        data-src="https://rtmp.applelive.in/boobsh/boobsh/index.m3u8">
-        <img src="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1724773261.png">
-        <p>Devi TV</p>
-      </div>
-    </div>
-
-    <!-- CHANNEL 2 -->
-    <div class="col-4 col-md-2">
-      <div class="channel-box"
-        data-src="https://anywhere.pwisetthon.com/http://server.mindspell.in/live/vinayagatv/index.m3u8">
-        <img src="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1724773424.PNG">
-        <p>Vinayaka TV</p>
-      </div>
-    </div>
-
-    <!-- CHANNEL 3 -->
-    <div class="col-4 col-md-2">
-      <div class="channel-box"
-        data-src="https://anywhere.pwisetthon.com/http://server3.sscloud7.in:1935/stmtv/srithangamalaimurugantv/playlist.m3u8">
-        <img src="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1752476824.jpeg">
-        <p>Sri Thangamalai Murugan TV</p>
-      </div>
-    </div>
-
-    <!-- CHANNEL 4 -->
-    <div class="col-4 col-md-2">
-      <div class="channel-box"
-        data-src="https://anywhere.pwisetthon.com/http://168.220.233.77:1935/kmmusic/kmmusic/playlist.m3u8">
-        <img src="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1754406985.PNG">
-        <p>KM Music</p>
-      </div>
-    </div>
-
-  </div>
+<div class="container">
+ <div class="row" id="channelList"></div>
 </div>
 
 <script>
-var player = videojs('tvPlayer');
+const m3uData = `
+#EXTINF:-1 tvg-id="DeviTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1724773261.png",Devi TV
+https://anywhere.pwisetthon.com/http://server.mindspell.in/live/devitv/index.m3u8
+#EXTINF:-1 tvg-id="VinayakaTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1724773424.PNG",Vinayaka TV
+https://anywhere.pwisetthon.com/http://server.mindspell.in/live/vinayagatv/index.m3u8
+#EXTINF:-1 tvg-id="KM" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1754406985.PNG",KM Music
+https://anywhere.pwisetthon.com/http://168.220.233.77:1935/kmmusic/kmmusic/playlist.m3u8
+`;
 
-$('.channel-box').click(function(){
-  var src = $(this).data('src');
-  player.src({ src: src, type: 'application/x-mpegURL' });
-  player.play();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+const player = videojs('tvPlayer');
+const lines = m3uData.trim().split('\n');
+let channels = [];
+
+for (let i = 0; i < lines.length; i++) {
+ if (lines[i].startsWith('#EXTINF')) {
+   const name = lines[i].split(',').pop();
+   const logoMatch = lines[i].match(/tvg-logo="(.*?)"/);
+   const logo = logoMatch ? logoMatch[1] : '';
+   const url = lines[i+1];
+
+   channels.push({name, logo, url});
+ }
+}
+
+channels.forEach(ch => {
+ $('#channelList').append(`
+  <div class="col-4 col-md-2">
+    <div class="channel" data-src="${ch.url}">
+      <img src="${ch.logo}">
+      <p>${ch.name}</p>
+    </div>
+  </div>
+ `);
+});
+
+$(document).on('click','.channel',function(){
+ player.src({src:$(this).data('src'),type:'application/x-mpegURL'});
+ player.play();
+ window.scrollTo({top:0,behavior:'smooth'});
 });
 </script>
 
