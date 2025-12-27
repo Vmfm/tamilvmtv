@@ -2,144 +2,108 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tamil VM Live TV</title>
+<title>TAMIL VM LIVE TV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
 
 <style>
-:root {
-  --bg: #0f0f0f;
-  --card: #1c1c1c;
-  --text: #ffffff;
+body{background:#000;color:#fff}
+.tv-header{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  background:#111;
+  z-index:9999;
+  padding:10px;
 }
-.light {
-  --bg: #f5f5f5;
-  --card: #ffffff;
-  --text: #000000;
+.video-js{width:100%;height:220px}
+.tv-container{margin-top:260px}
+.channel-box{
+  border:1px solid #444;
+  margin-bottom:10px;
+  padding:5px;
+  text-align:center;
+  cursor:pointer;
 }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
+.channel-box img{
+  width:100%;
+  height:120px;
+  object-fit:contain;
 }
-
-/* Player iframe */
-#playerBox {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #000;
-}
-iframe {
-  width: 100%;
-  height: 230px;
-  border: none;
-  background: #000;
-}
-
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-.toggle {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Channels */
-.channels {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 10px;
-  padding: 10px;
-}
-.channel {
-  background: var(--card);
-  border-radius: 10px;
-  padding: 8px;
-  text-align: center;
-  cursor: pointer;
-}
-.channel img {
-  width: 100%;
-  border-radius: 8px;
-}
-.channel span {
-  display: block;
-  margin-top: 6px;
-  font-size: 14px;
+.channel-box p{
+  font-size:12px;
+  margin:5px 0 0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP PLAYER -->
-<div id="playerBox">
-  <iframe id="player"
-    src="https://vmfm.github.io/tamilvmtv/playermpd.html?src=https://account21.livebox.co.in/oscartvhls/live.m3u8"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<!-- HEADER -->
-<div class="header">
-  <h3>📺 Tamil VM Live TV</h3>
-  <button class="toggle" onclick="toggleMode()">🌙 / ☀</button>
+<!-- PLAYER -->
+<div class="tv-header">
+  <h4 class="text-center text-warning">TAMIL VM LIVE TV</h4>
+  <video id="tvPlayer" class="video-js vjs-default-skin" controls autoplay preload="auto">
+    <source src="https://anywhere.pwisetthon.com/http://server.mindspell.in/live/devitv/index.m3u8" type="application/x-mpegURL">
+  </video>
 </div>
 
 <!-- CHANNEL LIST -->
-<div class="channels">
+<div class="container tv-container">
+  <div class="row">
 
-  <div class="channel" onclick="play('https://account21.livebox.co.in/oscartvhls/live.m3u8')">
-    <img src="https://vmfm.github.io/tamilvmtv/image/oscar-tv.jpg">
-    <span>Oscar TV</span>
+    <!-- CHANNEL 1 -->
+    <div class="col-4 col-md-2">
+      <div class="channel-box"
+        data-src="https://anywhere.pwisetthon.com/http://server.mindspell.in/live/devitv/index.m3u8">
+        <img src="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1724773261.png">
+        <p>Devi TV</p>
+      </div>
+    </div>
+
+    <!-- CHANNEL 2 -->
+    <div class="col-4 col-md-2">
+      <div class="channel-box"
+        data-src="https://anywhere.pwisetthon.com/http://server.mindspell.in/live/vinayagatv/index.m3u8">
+        <img src="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1724773424.PNG">
+        <p>Vinayaka TV</p>
+      </div>
+    </div>
+
+    <!-- CHANNEL 3 -->
+    <div class="col-4 col-md-2">
+      <div class="channel-box"
+        data-src="https://anywhere.pwisetthon.com/http://server3.sscloud7.in:1935/stmtv/srithangamalaimurugantv/playlist.m3u8">
+        <img src="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1752476824.jpeg">
+        <p>Sri Thangamalai Murugan TV</p>
+      </div>
+    </div>
+
+    <!-- CHANNEL 4 -->
+    <div class="col-4 col-md-2">
+      <div class="channel-box"
+        data-src="https://anywhere.pwisetthon.com/http://168.220.233.77:1935/kmmusic/kmmusic/playlist.m3u8">
+        <img src="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1754406985.PNG">
+        <p>KM Music</p>
+      </div>
+    </div>
+
   </div>
-
-  <div class="channel" onclick="play('http://applelive.in/shatv/shatv.m3u8')">
-    <img src="https://vmfm.github.io/tamilvmtv/image/sha-tv-1.jpg">
-    <span>SHA TV</span>
-  </div>
-
-  <div class="channel" onclick="play('https://app.ashokadigital.net/app/7d1a23ef/index.m3u8')">
-    <img src="https://vmfm.github.io/tamilvmtv/image/amman-tv.jpg">
-    <span>Amman TV</span>
-  </div>
-
-  <div class="channel" onclick="play('https://notvstream.in/aasaitv/aasaitv.m3u8')">
-    <img src="https://vmfm.github.io/tamilvmtv/image/aasai-tv.jpg">
-    <span>Aasai TV</span>
-  </div>
-
-  <div class="channel" onclick="play('https://play.applelive.in/stv/stv.m3u8')">
-    <img src="https://vmfm.github.io/tamilvmtv/image/hai-tv.jpg">
-    <span>Hai TV</span>
-  </div>
-
-  <div class="channel" onclick="play('https://ipcloud.live/leotv/leotvhd/index.m3u8')">
-    <img src="https://vmfm.github.io/tamilvmtv/image/leo-tv.jpg">
-    <span>Leo TV</span>
-  </div>
-
 </div>
 
 <script>
-const player = document.getElementById("player");
+var player = videojs('tvPlayer');
 
-function play(stream) {
-  player.src = "https://vmfm.github.io/tamilvmtv/playermpd.html?src=" + encodeURIComponent(stream);
-}
-
-function toggleMode() {
-  document.body.classList.toggle("light");
-}
+$('.channel-box').click(function(){
+  var src = $(this).data('src');
+  player.src({ src: src, type: 'application/x-mpegURL' });
+  player.play();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 
 </body>
