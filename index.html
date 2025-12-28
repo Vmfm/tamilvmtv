@@ -20,21 +20,6 @@ body.light{
 }
 body{background:var(--bg);color:var(--text);font-family:sans-serif}
 
-/* LOADER */
-#loader{
- position:fixed;
- top:0;left:0;
- width:100%;height:100%;
- background:#000;
- display:flex;
- align-items:center;
- justify-content:center;
- z-index:100000;
-}
-#loader img{
- width:120px;
-}
-
 /* HEADER */
 .header{
  position:fixed;top:0;left:0;width:100%;
@@ -92,11 +77,6 @@ body.cover-mode .vjs-tech{object-fit:cover}
 
 <body>
 
-<!-- 🔥 LOADER -->
-<div id="loader">
- <img src="https://vmfm.github.io/tamil/Images/loading3.gif" alt="Loading...">
-</div>
-
 <a class="apk-btn" href="https://apk.e-droid.net/apk_t/app1386869_2829.apk?v=16" target="_blank">
 ⬇ Android App
 </a>
@@ -104,7 +84,7 @@ body.cover-mode .vjs-tech{object-fit:cover}
 <button class="toggle-btn" onclick="toggleTheme()">🌙 / ☀️</button>
 
 <div class="header">
- <h4 class="text-warning">TAMIL VM LIVE TV</h4>
+ <h4 class="text-warning"> VM LIVE TV</h4>
  <video id="tvPlayer" class="video-js vjs-default-skin"
   controls autoplay playsinline webkit-playsinline></video>
 </div>
@@ -158,20 +138,14 @@ fetch(M3U_URL).then(r=>r.text()).then(d=>{
    });
   }
  });
- buildCategories();
- render();
-
- /* ✅ HIDE LOADER AFTER LOAD */
- document.getElementById('loader').style.display='none';
+ buildCategories();render();
 });
 
-/* CATEGORY */
 function buildCategories(){
  [...new Set(allChannels.map(c=>c.group))]
  .forEach(g=>$('#category').append(`<option>${g}</option>`));
 }
 
-/* RENDER */
 function render(){
  const s=$('#search').val().toLowerCase(),c=$('#category').val();
  $('#channelList').html('');
@@ -191,7 +165,6 @@ function render(){
 
 $('#search,#category').on('input change',render);
 
-/* PLAY */
 $(document).on('click','.channel',function(){
  const n=$(this).data('name');
  currentSrc=$(this).data('src');
@@ -203,14 +176,29 @@ $(document).on('click','.channel',function(){
  window.scrollTo({top:0,behavior:'smooth'});
 });
 
-/* CLOSE POP */
+/* POP */
 function closePop(){
  popPlayer.pause();
  $('#popPlayer').hide();
 }
 
-/* FILL BUTTON */
-const zoomBtn=player.controlBar.addChild('button',{});
+/* DRAG POP */
+let drag=false,dx=0,dy=0;
+const pop=document.getElementById('popPlayer');
+pop.addEventListener('mousedown',e=>{
+ drag=true;dx=e.clientX-pop.offsetLeft;dy=e.clientY-pop.offsetTop;
+});
+document.addEventListener('mousemove',e=>{
+ if(drag){
+  pop.style.left=(e.clientX-dx)+'px';
+  pop.style.top=(e.clientY-dy)+'px';
+  pop.style.right='auto';pop.style.bottom='auto';
+ }
+});
+document.addEventListener('mouseup',()=>drag=false);
+
+/* FIT / FILL BUTTON */
+const zoomBtn = player.controlBar.addChild('button',{});
 zoomBtn.addClass('vjs-control');
 zoomBtn.el().innerHTML='⛶';
 zoomBtn.el().title='Fill Screen';
@@ -218,14 +206,18 @@ zoomBtn.onclick=()=>{
  document.body.classList.toggle('cover-mode');
 };
 
-/* AUTO ROTATE */
+/* 🔥 AUTO ROTATE ON FULLSCREEN */
 player.on('fullscreenchange',()=>{
  if(player.isFullscreen()){
   document.body.classList.add('cover-mode');
-  screen.orientation?.lock('landscape').catch(()=>{});
+  if(screen.orientation?.lock){
+   screen.orientation.lock('landscape').catch(()=>{});
+  }
  }else{
   document.body.classList.remove('cover-mode');
-  screen.orientation?.unlock?.();
+  if(screen.orientation?.unlock){
+   screen.orientation.unlock();
+  }
  }
 });
 </script>
