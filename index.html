@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>TAMIL VM LIVE TV</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -69,7 +69,7 @@ body{background:var(--bg);color:var(--text);font-family:sans-serif}
  border-radius:50%;width:22px;height:22px;
 }
 
-/* FIT / FILL */
+/* FULLSCREEN FILL */
 .vjs-tech{object-fit:contain}
 body.cover-mode .vjs-tech{object-fit:cover}
 </style>
@@ -84,7 +84,7 @@ body.cover-mode .vjs-tech{object-fit:cover}
 <button class="toggle-btn" onclick="toggleTheme()">🌙 / ☀️</button>
 
 <div class="header">
- <h4 class="text-warning">TAMIL VM LIVE TV</h4>
+ <h4 class="text-warning"> VM LIVE TV</h4>
  <video id="tvPlayer" class="video-js vjs-default-skin"
   controls autoplay playsinline webkit-playsinline></video>
 </div>
@@ -177,12 +177,6 @@ $(document).on('click','.channel',function(){
 });
 
 /* POP */
-function openPop(){
- if(!currentSrc) return;
- $('#popPlayer').show();
- popPlayer.src({src:currentSrc,type:'application/x-mpegURL'});
- popPlayer.play();
-}
 function closePop(){
  popPlayer.pause();
  $('#popPlayer').hide();
@@ -202,27 +196,30 @@ document.addEventListener('mousemove',e=>{
  }
 });
 document.addEventListener('mouseup',()=>drag=false);
-pop.addEventListener('touchstart',e=>{
- const t=e.touches[0];
- drag=true;dx=t.clientX-pop.offsetLeft;dy=t.clientY-pop.offsetTop;
-});
-pop.addEventListener('touchmove',e=>{
- if(drag){
-  const t=e.touches[0];
-  pop.style.left=(t.clientX-dx)+'px';
-  pop.style.top=(t.clientY-dy)+'px';
- }
-});
-pop.addEventListener('touchend',()=>drag=false);
 
-/* FIT / FILL BUTTON INSIDE PLAYER */
+/* FIT / FILL BUTTON */
 const zoomBtn = player.controlBar.addChild('button',{});
 zoomBtn.addClass('vjs-control');
 zoomBtn.el().innerHTML='⛶';
-zoomBtn.el().title='Fit / Fill';
-zoomBtn.el().onclick=()=>{
+zoomBtn.el().title='Fill Screen';
+zoomBtn.onclick=()=>{
  document.body.classList.toggle('cover-mode');
 };
+
+/* 🔥 AUTO ROTATE ON FULLSCREEN */
+player.on('fullscreenchange',()=>{
+ if(player.isFullscreen()){
+  document.body.classList.add('cover-mode');
+  if(screen.orientation?.lock){
+   screen.orientation.lock('landscape').catch(()=>{});
+  }
+ }else{
+  document.body.classList.remove('cover-mode');
+  if(screen.orientation?.unlock){
+   screen.orientation.unlock();
+  }
+ }
+});
 </script>
 
 </body>
