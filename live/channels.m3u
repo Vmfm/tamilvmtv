@@ -117,7 +117,7 @@ http://stream.advikadigital.in/advika/advika/index.m3u8
 https://stream.advikadigital.in/advika/ssmusic/index.m3u8
 #EXTINF:-1 tvg-id="SreeSaravanaaTV" tvg-logo="" group-title="Unknown",Sree Saravanaa TV
 https://stream.advikadigital.in/advika/saravana/index.m3u8
-#EXTINF:-1 tvg-id="DeavathaiTV" tvg-logo="" group-title="Unknown",Deavathai TV
+#EXTINF:-1 tvg-id="DeavathaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/devathai-tv.jpg" group-title="Unknown",Deavathai TV
 https://hdbox.singamcloud.in/Deavathaitv/Deavathaitv/index.m3u8
 #EXTINF:-1 tvg-id="SMCVTV" tvg-logo="https://play-lh.googleusercontent.com/QHY-UJodq8HOSLN6waYq91yJMCsu1Cq5toOX6PRffCrE2A8sl-MOdifsRgmq-rl3eA=w512-h960-rw" group-title="Unknown",SMCV TV
 https://singamcloud.in/smcvtv/smcvtv/index.m3u8
@@ -215,7 +215,7 @@ https://app.ashokadigital.net/app/db285ebc/index.m3u8
 https://ipcloud.live/mtv/menhd/index.m3u8
 #EXTINF:-1 tvg-id="MSNTV" tvg-logo="https://play-lh.googleusercontent.com/F3TU8RYLcFvQ6V-3okXaome7n0PmClEmkVIcEGHw6YPO1ArCpp30XV_fNjuIdozkCZtq=w512-h960-rw" group-title="Cuddalore",MSN TV
 https://ipcloud.live/msntv/msntv/index.m3u8
-#EXTINF:-1 tvg-id="SaamiTV" group-title="Cuddalore",Saami TV
+#EXTINF:-1 tvg-id="SaamiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/saami-tv.jpg" group-title="Cuddalore",Saami TV
 https://ipcloud.live/msntv/saamitv/index.m3u8
 #EXTINF:-1 tvg-id="JeevanTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1754418564_WhatsApp%2520Image%25202025-08-05%2520at%25209.34.59%2520PM.jpeg&w=1920&q=75" group-title="Dharapura; Tiruppur Dist.",Jeevan TV
 https://stream.singamcloud.in/Jeevantv/Jeevantv/index.m3u8
@@ -335,7 +335,7 @@ https://ipcloud.live/nilatv/nilatv/index.m3u8
 https://play.applelive.in/vasantv/vasantv.m3u8
 #EXTINF:-1 tvg-id="AasaiTV" tvg-logo="https://i.imgur.com/5p42C3t.jpg" group-title="Karur",Aasai TV
 https://notvstream.in/aasaitv/aasaitv.m3u8
-#EXTINF:-1 tvg-id="RainbowTVGandarvakottai" tvg-logo="" group-title="Gandarvakottai; Thanjavur Dist.",Rainbow TV Gandarvakottai
+#EXTINF:-1 tvg-id="RainbowTVGandarvakottai" tvg-logo="https://vmfm.github.io/tamilvmtv/image/rainbow-tv.jpg" group-title="Gandarvakottai; Thanjavur Dist.",Rainbow TV Gandarvakottai
 https://notvstream.in/rainbowtv/rainbowtv.m3u8
 #EXTINF:-1 tvg-id="ShaliniTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1737815564_Shalini%2520Tv%2520logo%2520New%252028-04-2012.png&w=1920&q=75" group-title="State-wide",Shalini TV
 https://stream.singamcloud.in/shalinitv/shalinitv/index.m3u8
@@ -416,13 +416,10 @@ https://stream.onecloudlive.in/santhiyatv/santhiyatvhd/index.m3u8
 #EXTINF:-1 tvg-id="SanthiyaTVJKM" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746533803_saN.png&w=1920&q=75" group-title="Unknown",Santhiya TV JKM
 https://stream.onecloudlive.in/santhiyatv/jkm/index.m3u8
 #EXTINF:-1 tvg-id="AnandamTVMadurai" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1746452472_lo.png&w=1920&q=75" group-title="Madurai",Anandam TV
-#EXTVLCOPT:http-referrer=https://oxolive.com
 https://fucking-tv-ott.keralive.workers.dev/mumt02/ANANDAMTV/index.m3u8
-#EXTINF:-1 tvg-id="AnandamAbiTV" tvg-logo="" group-title="Madurai",Anandam Abi TV
-#EXTVLCOPT:http-referrer=https://oxolive.com
+#EXTINF:-1 tvg-id="AnandamAbiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Anandam%20Abitv.jpg" group-title="Madurai",Anandam Abi TV
 https://fucking-tv-ott.keralive.workers.dev/mumt02/ABITV/index.m3u8
 #EXTINF:-1 tvg-id="AnandamUTV" tvg-logo="" group-title="Madurai",Anandam UTV
-#EXTVLCOPT:http-referrer=https://oxolive.com
 https://fucking-tv-ott.keralive.workers.dev/mumt02/UTVANANDAM/index.m3u8
 #EXTINF:-1 tvg-id="JayaamTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1732251489_Jayaam%2520copy.png&w=1920&q=75" group-title="Unknown",Jayaam TV
 https://app.ashokadigital.net/app/67a779e9/index.m3u8
