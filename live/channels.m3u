@@ -1391,6 +1391,6 @@ https://view.rcserver.in/tmp_hls13/udhayamhd/index.m3u8
 #EXTINF:-1 tvg-id="AzhagiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/azhagi-tv.jpg" group-title="Unknown",Azhagi TV
 https://view.rcserver.in/tmp_hls25/azhagitv/index.m3u8
 #EXTINF:-1 tvg-id="PolimerChannel" tvg-logo="https://play-lh.googleusercontent.com/DiZsLeRIoky2i4qkkR36SF7R5MR_fwb0Hl41U3wAlVZsi1wKMBxbK3fzvln8YUQrmbkV=w512-h960-rw" group-title="Salem",Polimer Channel
-http://media.7starcloud.com:1935/polimer/live/playlist.m3u8
+https://anywhere.pwisetthon.com/http://media.7starcloud.com:1935/polimer/live/playlist.m3u8
 #EXTINF:-1 tvg-id="Selva Tamil TV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/selva tamil tv.jpg" group-title="Unknown",Selva Tamil TV
 https://anywhere.pwisetthon.com/http://senthurtamilan.phoenixcreations.online/senthur/tamilan/playlist.m3u8
