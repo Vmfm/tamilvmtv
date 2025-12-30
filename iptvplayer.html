@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Tamil VM TV – Manual M3U Login</title>
+<title>Tamil VM TV – Advanced IPTV</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet">
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
 <style>
 body {
@@ -15,120 +17,140 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Top Controls */
 #top {
     padding: 10px;
     background: #111;
 }
 
 input, button, select {
+    padding: 10px;
     width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    font-size: 16px;
+    margin-top: 6px;
+    font-size: 15px;
     border: none;
     outline: none;
-}
-
-input {
-    background: #222;
-    color: #fff;
 }
 
 button {
     background: #e50914;
     color: #fff;
-    cursor: pointer;
 }
 
-select {
-    background: #111;
-    color: #fff;
-}
-
-#player {
-    width: 100vw;
+/* Player */
+#playerContainer {
+    width: 100%;
     height: 55vh;
-    background: black;
+    background: #000;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+
+/* Channel Row */
+#channels {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    background: #111;
+}
+
+.channel {
+    min-width: 160px;
+    margin-right: 10px;
+    padding: 12px;
+    background: #222;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.channel:hover {
+    background: #e50914;
 }
 </style>
 </head>
 
 <body>
 
+<!-- CONTROLS -->
 <div id="top">
-    <input 
-        type="text" 
-        id="m3uInput" 
-        placeholder="Enter M3U URL (http/https)"
-    >
+    <input id="m3uUrl" placeholder="Enter M3U URL (http/https)">
+    
+    <select id="playerType">
+        <option value="hls">HLS.js Player</option>
+        <option value="native">Native HTML5</option>
+        <option value="videojs">Video.js Player</option>
+    </select>
+
     <button onclick="loadM3U()">LOAD PLAYLIST</button>
 </div>
 
-<video id="player" controls autoplay></video>
+<!-- PLAYER -->
+<div id="playerContainer">
+    <video id="videoPlayer" class="video-js vjs-default-skin" controls autoplay></video>
+</div>
 
-<select id="channelList">
-    <option>No playlist loaded</option>
-</select>
+<!-- CHANNEL ROW -->
+<div id="channels"></div>
 
 <script>
-const video = document.getElementById("player");
-const channelList = document.getElementById("channelList");
 let hls;
+let player;
 
 function loadM3U() {
-    const url = document.getElementById("m3uInput").value.trim();
-
+    const url = document.getElementById("m3uUrl").value.trim();
     if (!url.startsWith("http")) {
-        alert("Please enter a valid M3U URL");
+        alert("Enter valid M3U URL");
         return;
     }
 
     fetch(url)
     .then(res => res.text())
     .then(data => {
-        channelList.innerHTML = "";
+        document.getElementById("channels").innerHTML = "";
         const lines = data.split("\n");
 
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].startsWith("#EXTINF")) {
-                const name = lines[i].split(",")[1] || "Unknown Channel";
+                const name = lines[i].split(",")[1] || "Channel";
                 const stream = lines[i + 1]?.trim();
 
                 if (stream && stream.startsWith("http")) {
-                    const option = document.createElement("option");
-                    option.value = stream;
-                    option.textContent = name;
-                    channelList.appendChild(option);
+                    const div = document.createElement("div");
+                    div.className = "channel";
+                    div.innerText = name;
+                    div.onclick = () => play(stream);
+                    document.getElementById("channels").appendChild(div);
                 }
             }
         }
-
-        if (channelList.options.length > 0) {
-            play(channelList.value);
-        } else {
-            alert("No channels found");
-        }
-    })
-    .catch(() => alert("Failed to load M3U"));
+    });
 }
 
-channelList.addEventListener("change", () => {
-    play(channelList.value);
-});
-
 function play(url) {
-    if (hls) {
-        hls.destroy();
-    }
+    const type = document.getElementById("playerType").value;
+    const video = document.getElementById("videoPlayer");
 
-    if (Hls.isSupported()) {
+    if (hls) { hls.destroy(); }
+    if (player) { player.dispose(); player = null; }
+
+    if (type === "hls" && Hls.isSupported()) {
         hls = new Hls();
         hls.loadSource(url);
         hls.attachMedia(video);
-    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    } 
+    else if (type === "videojs") {
+        player = videojs(video);
+        player.src({ src: url, type: "application/x-mpegURL" });
+        player.play();
+    }
+    else {
         video.src = url;
-    } else {
-        alert("HLS not supported");
+        video.play();
     }
 }
 </script>
