@@ -113,15 +113,15 @@ https://j78dp2pnlq5r-hls-live.comcities.net/ITNDigital/20a317b0496a4930b37529050
 https://ipcloud.live/paavai/live/index.m3u8
 #EXTINF:-1 tvg-id="AdvikaTV" tvg-logo="https://play-lh.googleusercontent.com/GpP7fx3D7WauJEGYJkj8lJGuRVE3m5IqTKDqK74HIRhk2M_Hg49TSwlcP_oUUPKEt8ij=w512-h960-rw" group-title="Unknown",Advika TV
 http://stream.advikadigital.in/advika/advika/index.m3u8
-#EXTINF:-1 tvg-id="SSMusic" tvg-logo="" group-title="Unknown",SS Music
+#EXTINF:-1 tvg-id="SSMusic" tvg-logo="https://vmfm.github.io/tamilvmtv/image/ss-music.png" group-title="Unknown",SS Music
 https://stream.advikadigital.in/advika/ssmusic/index.m3u8
-#EXTINF:-1 tvg-id="SreeSaravanaaTV" tvg-logo="" group-title="Unknown",Sree Saravanaa TV
+#EXTINF:-1 tvg-id="SreeSaravanaaTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Sree_Saravanaa_TV.png" group-title="Unknown",Sree Saravanaa TV
 https://stream.advikadigital.in/advika/saravana/index.m3u8
 #EXTINF:-1 tvg-id="DeavathaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/devathai-tv.jpg" group-title="Unknown",Deavathai TV
 https://hdbox.singamcloud.in/Deavathaitv/Deavathaitv/index.m3u8
 #EXTINF:-1 tvg-id="SMCVTV" tvg-logo="https://play-lh.googleusercontent.com/QHY-UJodq8HOSLN6waYq91yJMCsu1Cq5toOX6PRffCrE2A8sl-MOdifsRgmq-rl3eA=w512-h960-rw" group-title="Unknown",SMCV TV
 https://singamcloud.in/smcvtv/smcvtv/index.m3u8
-#EXTINF:-1 tvg-id="YogaaTV" tvg-logo="https://firebasestorage.googleapis.com/v0/b/cloud-multiapp.appspot.com/o/yogaa-tv.jpg?alt=media&token=f1d5050e-80ac-4e65-a896-f14e3fcc25ea" group-title="Unknown",Yogaa TV
+#EXTINF:-1 tvg-id="YogaaTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/yogaa-tv-1.jpg" group-title="Unknown",Yogaa TV
 https://ipcloud.live/yogaatv/yogaatv/index.m3u8
 #EXTINF:-1 tvg-id="RojaTV2" tvg-logo="https://play-lh.googleusercontent.com/3cBp5vsU7FKp9pvWWBbRNB6ap75ayenamvotB__f9ve0wXJF6hwlMHQKxzqb6Bx7a0lM=w512-h960-rw" group-title="Coimbatore",Roja TV [Not 24/7]
 https://rojatv.phoenixcreations.online/rojatv/rojatv/index.m3u8
@@ -167,7 +167,7 @@ https://stream.galaxyott.live/live/suriyantv/index.m3u8
 https://sscloud7.com/live/suriyantv/index.m3u8
 #EXTINF:-1 tvg-id="UdhayamTV" tvg-logo="https://tamilradios.org/wp-content/uploads/2025/01/udhayam-tv.jpg" group-title="Pochampalli; Krishnagiri Dist.",Udhayam TV
 https://ipcloud.live/udhayamtv/live/index.m3u8
-#EXTINF:-1 tvg-id="DeiveegaOliTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1756316526_karthi%2520tv%2520002%2520copy.png&w=1920&q=75" group-title="Unknown",Deiveega Oli TV
+#EXTINF:-1 tvg-id="DeiveegaOliTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/deiva-oli-tv-1.jpg" group-title="Unknown",Deiveega Oli TV
 https://app.ashokadigital.net/app/e9fa0994/index.m3u8
 #EXTINF:-1 tvg-id="SailamTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1756798921_f97c3c8d-9b6e-410e-a4e0-c990a5c76bf5-removebg-preview.png&w=1920&q=75" group-title="Salem",Sailam TV
 https://app.ashokadigital.net/app/c7b1cd7e/index.m3u8
@@ -187,7 +187,7 @@ https://ipcloud.live/sachintv/aadviktv/index.m3u8
 https://stream.onecloudlive.in/sachintv/strawberrytv/index.m3u8
 #EXTINF:-1 tvg-id="JPMusicTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1763572153_JP%2520music%2520tv.png&w=1080&q=75" group-title="Sambavarvadakarai",JP Music TV
 https://stream.onecloudlive.in/sachintv/jpmusichd/index.m3u8
-#EXTINF:-1 tvg-id="MinnalTV" tvg-logo="https://firebasestorage.googleapis.com/v0/b/cloud-multiapp.appspot.com/o/minnal-tv.png?alt=media&token=d47021f9-26fb-457e-8b70-38cce4bbc672" group-title="Unknown",Minnal TV
+#EXTINF:-1 tvg-id="MinnalTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/minnal-tv-1.jpg" group-title="Unknown",Minnal TV
 https://ipcloud.live/minnaltv/minnalhd/index.m3u8
 #EXTINF:-1 tvg-id="AkilamTV" tvg-logo="https://play-lh.googleusercontent.com/O2VYtHNRr69SaCKZ3NKYz4-JpCu7Va1tc7agAbpB-rdRa-PsKrwW-_VbZE3gLvDjew=w512-h960-rw" group-title="Thisayanvilail; Tirunelveli Dist.",Akilam TV
 https://stream.onecloudlive.in/akilamtv/akilamtvhd/index.m3u8
@@ -205,8 +205,8 @@ https://stream.rojatv.cloud/nammagobi/tv/index.m3u8
 https://stream.onecloudlive.in/jeyam/jeyammdu/index.m3u8
 #EXTINF:-1 tvg-id="RJTamil" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1739531400_IMG_2914.PNG&w=1920&q=75" group-title="Unknown",RJ Tamil [Not 24/7]
 https://ipcloud.live/rjtamiltv/rjtamil/index.m3u8
-#EXTINF:-1 tvg-id="AadhavanTV" tvg-logo="https://firebasestorage.googleapis.com/v0/b/cloud-multiapp.appspot.com/o/ADAVAN-TV.png?alt=media&token=a30696f7-661e-42e2-9c52-1cac0bf4fb5d" group-title="Sholavandan; Madurai Dist.",Aadhavan TV
-https://ipcloud.live/aadhavantv/aadhavanhd/index.m3u8
+#EXTINF:-1 tvg-id="AadhavanTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/aadhavan-tv2.jpg" group-title="Sholavandan; Madurai Dist.",Aadhavan TV
+https://oj7lnxonyg82-hls-live.5centscdn.com/md5=GHkKSkaKdTNMEqZCXiCB5A&path=%2Fathavan%2F557a2fa47edc99a633852e9ec3acd716.sdp&expires=1767084553/athavan/557a2fa47edc99a633852e9ec3acd716.sdp/playlist.m3u8
 #EXTINF:-1 tvg-id="MaruthiTV" tvg-logo="https://play-lh.googleusercontent.com/LSjXF_sRhe2bGwzZUSEeDwBtopkY3lj6Ftn-A4vPsogTWodKtFe14lOAGL7L8qgryC8=w512-h960-rw" group-title="Vazhapadi; Salem Dist.",Maruthi TV
 https://stream.onecloudlive.in/maruthitv/maruthitvhd/index.m3u8
 #EXTINF:-1 tvg-id="JayamTVSivakasi" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1756047174_Jayam%2520Tv%2520Logo.png&w=1920&q=75" group-title="Sivakasi",Jayam TV
