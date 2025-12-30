@@ -2,157 +2,215 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Tamil VM TV – Advanced IPTV</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAMIL VM LIVE TV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet">
-<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style>
-body {
-    margin: 0;
-    background: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
+:root{
+ --bg:#000;--card:#111;--text:#fff;--border:#333;
+}
+body.light{
+ --bg:#f5f5f5;--card:#fff;--text:#000;--border:#ccc;
+}
+body{background:var(--bg);color:var(--text);font-family:sans-serif}
+
+/* LOADER */
+#loader{
+ position:fixed;
+ top:0;left:0;
+ width:100%;height:100%;
+ background:#000;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ z-index:100000;
+}
+#loader img{
+ width:120px;
 }
 
-/* Top Controls */
-#top {
-    padding: 10px;
-    background: #111;
+/* HEADER */
+.header{
+ position:fixed;top:0;left:0;width:100%;
+ background:var(--card);z-index:9999;
+ padding:10px;text-align:center;
+}
+.video-js{width:100%;height:220px}
+.main{margin-top:380px}
+
+/* APK */
+.apk-btn{
+ position:fixed;top:15px;left:15px;z-index:10001;
+ background:#00c853;color:#000;
+ padding:6px 12px;border-radius:20px;
+ font-size:12px;font-weight:bold;text-decoration:none;
 }
 
-input, button, select {
-    padding: 10px;
-    width: 100%;
-    margin-top: 6px;
-    font-size: 15px;
-    border: none;
-    outline: none;
+/* TOGGLE */
+.toggle-btn{
+ position:fixed;top:15px;right:15px;z-index:10001;
+ background:#ff9800;color:#000;
+ border:none;padding:6px 12px;border-radius:20px;
 }
 
-button {
-    background: #e50914;
-    color: #fff;
+/* LOGIN */
+#m3uLogin{
+ margin-bottom:10px;
 }
 
-/* Player */
-#playerContainer {
-    width: 100%;
-    height: 55vh;
-    background: #000;
+/* CHANNEL */
+.channel{
+ border:1px solid var(--border);
+ background:var(--card);margin-bottom:10px;
+ text-align:center;cursor:pointer;padding:5px;
 }
+.channel img{width:100%;height:120px;object-fit:contain}
+.channel p{font-size:12px;margin:3px 0}
+.views{font-size:10px;color:#ff9800}
 
-video {
-    width: 100%;
-    height: 100%;
-}
-
-/* Channel Row */
-#channels {
-    display: flex;
-    overflow-x: auto;
-    padding: 10px;
-    background: #111;
-}
-
-.channel {
-    min-width: 160px;
-    margin-right: 10px;
-    padding: 12px;
-    background: #222;
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.channel:hover {
-    background: #e50914;
-}
+/* FULLSCREEN FILL */
+.vjs-tech{object-fit:contain}
+body.cover-mode .vjs-tech{object-fit:cover}
 </style>
 </head>
 
 <body>
 
-<!-- CONTROLS -->
-<div id="top">
-    <input id="m3uUrl" placeholder="Enter M3U URL (http/https)">
-    
-    <select id="playerType">
-        <option value="hls">HLS.js Player</option>
-        <option value="native">Native HTML5</option>
-        <option value="videojs">Video.js Player</option>
-    </select>
-
-    <button onclick="loadM3U()">LOAD PLAYLIST</button>
+<!-- 🔥 LOADER -->
+<div id="loader">
+ <img src="https://vmfm.github.io/tamilvmtv/image/loading-loader.gif" alt="Loading...">
 </div>
 
-<!-- PLAYER -->
-<div id="playerContainer">
-    <video id="videoPlayer" class="video-js vjs-default-skin" controls autoplay></video>
+<a class="apk-btn" href="https://apk.e-droid.net/apk_t/app1386869_2829.apk?v=16" target="_blank">
+⬇ Android App
+</a>
+
+<button class="toggle-btn" onclick="toggleTheme()">🌙 / ☀️</button>
+
+<div class="header">
+ <h4 class="text-warning">TAMIL VM LIVE TV</h4>
+ 
+ <!-- LOGIN INPUT -->
+ <input type="text" id="m3uInput" class="form-control" placeholder="Enter M3U URL">
+ <button class="btn btn-success btn-block mt-2" onclick="loadM3U()">Load Channels</button>
+
+ <video id="tvPlayer" class="video-js vjs-default-skin"
+  controls autoplay playsinline webkit-playsinline></video>
 </div>
 
-<!-- CHANNEL ROW -->
-<div id="channels"></div>
+<div class="container main">
+ <div class="row mb-2">
+  <div class="col-6">
+   <input type="text" id="search" class="form-control" placeholder="Search channel">
+  </div>
+  <div class="col-6">
+   <select id="category" class="form-control">
+    <option value="all">All Categories</option>
+   </select>
+  </div>
+ </div>
+ <div class="row" id="channelList"></div>
+</div>
 
 <script>
-let hls;
-let player;
+const player = videojs('tvPlayer');
+let allChannels = [], views = JSON.parse(localStorage.getItem('views')||'{}'), currentSrc=null;
 
-function loadM3U() {
-    const url = document.getElementById("m3uUrl").value.trim();
-    if (!url.startsWith("http")) {
-        alert("Enter valid M3U URL");
-        return;
-    }
+/* THEME */
+if(localStorage.getItem('theme')==='light') document.body.classList.add('light');
+function toggleTheme(){
+ document.body.classList.toggle('light');
+ localStorage.setItem('theme', document.body.classList.contains('light')?'light':'dark');
+}
 
-    fetch(url)
-    .then(res => res.text())
-    .then(data => {
-        document.getElementById("channels").innerHTML = "";
-        const lines = data.split("\n");
-
-        for (let i = 0; i < lines.length; i++) {
-            if (lines[i].startsWith("#EXTINF")) {
-                const name = lines[i].split(",")[1] || "Channel";
-                const stream = lines[i + 1]?.trim();
-
-                if (stream && stream.startsWith("http")) {
-                    const div = document.createElement("div");
-                    div.className = "channel";
-                    div.innerText = name;
-                    div.onclick = () => play(stream);
-                    document.getElementById("channels").appendChild(div);
-                }
-            }
-        }
+/* LOAD M3U FUNCTION */
+function loadM3U(){
+ const M3U_URL = document.getElementById('m3uInput').value.trim();
+ if(!M3U_URL) return alert('Enter a valid M3U URL');
+ 
+ document.getElementById('loader').style.display='flex';
+ fetch(M3U_URL)
+  .then(r => r.text())
+  .then(d => {
+    allChannels=[];
+    d.split('\n').forEach((l,i,a)=>{
+      if(l.startsWith('#EXTINF')){
+        allChannels.push({
+          name: l.split(',').pop().trim(),
+          logo: (l.match(/tvg-logo="(.*?)"/)||[])[1] || 'https://via.placeholder.com/300x200?text=TV',
+          group: (l.match(/group-title="(.*?)"/)||[])[1] || 'Other',
+          url: a[i+1]?.trim()
+        });
+      }
     });
+    buildCategories();
+    render();
+    document.getElementById('loader').style.display='none';
+  })
+  .catch(()=>{alert('Failed to load M3U'); document.getElementById('loader').style.display='none';});
 }
 
-function play(url) {
-    const type = document.getElementById("playerType").value;
-    const video = document.getElementById("videoPlayer");
-
-    if (hls) { hls.destroy(); }
-    if (player) { player.dispose(); player = null; }
-
-    if (type === "hls" && Hls.isSupported()) {
-        hls = new Hls();
-        hls.loadSource(url);
-        hls.attachMedia(video);
-    } 
-    else if (type === "videojs") {
-        player = videojs(video);
-        player.src({ src: url, type: "application/x-mpegURL" });
-        player.play();
-    }
-    else {
-        video.src = url;
-        video.play();
-    }
+/* CATEGORY */
+function buildCategories(){
+ $('#category').html('<option value="all">All Categories</option>');
+ [...new Set(allChannels.map(c=>c.group))].forEach(g=>$('#category').append(`<option>${g}</option>`));
 }
+
+/* RENDER CHANNELS */
+function render(){
+ const s=$('#search').val().toLowerCase(),c=$('#category').val();
+ $('#channelList').html('');
+ allChannels.filter(x=>(c==='all'||x.group===c) && x.name.toLowerCase().includes(s))
+  .forEach(x=>{
+    $('#channelList').append(`
+      <div class="col-4 col-md-2">
+        <div class="channel" data-src="${x.url}" data-name="${x.name}">
+          <img src="${x.logo}">
+          <p>${x.name}</p>
+          <div class="views">👁 ${(views[x.name]||0)} views</div>
+        </div>
+      </div>
+    `);
+  });
+}
+
+$('#search,#category').on('input change',render);
+
+/* PLAY CHANNEL */
+$(document).on('click','.channel',function(){
+ const n=$(this).data('name');
+ currentSrc=$(this).data('src');
+ views[n]=(views[n]||0)+1;
+ localStorage.setItem('views',JSON.stringify(views));
+ render();
+ player.src({src:currentSrc,type:'application/x-mpegURL'});
+ player.play();
+ window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* FILL BUTTON */
+const zoomBtn = player.controlBar.addChild('button',{});
+zoomBtn.addClass('vjs-control');
+zoomBtn.el().innerHTML='⛶';
+zoomBtn.el().title='Fill Screen';
+zoomBtn.onclick = ()=>{ document.body.classList.toggle('cover-mode'); };
+
+/* AUTO ROTATE */
+player.on('fullscreenchange',()=>{
+ if(player.isFullscreen()){
+  document.body.classList.add('cover-mode');
+  screen.orientation?.lock('landscape').catch(()=>{});
+ }else{
+  document.body.classList.remove('cover-mode');
+  screen.orientation?.unlock?.();
+ }
+});
 </script>
 
 </body>
