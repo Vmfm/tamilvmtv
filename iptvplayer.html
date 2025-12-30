@@ -36,17 +36,36 @@ body{background:var(--bg);color:var(--text);font-family:sans-serif}
  border:none;padding:6px 12px;border-radius:20px;
 }
 
-/* PLAYLIST MANAGER */
+/* PLAYLIST POPUP */
+#playlistPopup{
+ position:fixed;top:50px;right:15px;
+ width:300px;
+ background:var(--card);
+ border:1px solid var(--border);
+ padding:10px;
+ display:none;
+ z-index:10002;
+ max-height:80vh;
+ overflow-y:auto;
+ border-radius:10px;
+}
+#playlistPopup h5{
+ margin-bottom:10px;
+ text-align:center;
+}
 .playlist-item{
  border:1px solid var(--border);
- background:var(--card);
+ background:var(--bg);
  padding:5px;
  margin-bottom:5px;
  cursor:pointer;
- display:flex;justify-content:space-between;align-items:center;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ font-size:14px;
 }
 .playlist-item button{
- margin-left:5px;font-size:12px;padding:2px 5px;
+ margin-left:3px;font-size:12px;padding:2px 4px;
 }
 
 /* CHANNEL */
@@ -68,21 +87,23 @@ body.cover-mode .vjs-tech{object-fit:cover}
 <body>
 
 <button class="toggle-btn" onclick="toggleTheme()">🌙 / ☀️</button>
+<button class="btn btn-info" style="position:fixed;top:15px;left:15px;z-index:10001;" onclick="togglePopup()">Playlists</button>
 
 <div class="header">
  <h4 class="text-warning">TAMIL VM IPTV MANAGER</h4>
+ <video id="tvPlayer" class="video-js vjs-default-skin"
+  controls autoplay playsinline webkit-playsinline></video>
+</div>
 
- <!-- Playlist Manager -->
- <div class="form-group mt-2">
+<!-- PLAYLIST POPUP -->
+<div id="playlistPopup">
+ <h5>My Playlists</h5>
+ <div class="form-group">
    <input type="text" id="playlistName" class="form-control mb-1" placeholder="Playlist Name">
    <input type="text" id="playlistURL" class="form-control mb-1" placeholder="Playlist M3U URL">
    <button class="btn btn-success btn-block" onclick="addPlaylist()">Add Playlist</button>
  </div>
-
  <div id="playlistsContainer"></div>
-
- <video id="tvPlayer" class="video-js vjs-default-skin"
-  controls autoplay playsinline webkit-playsinline></video>
 </div>
 
 <div class="container main">
@@ -108,6 +129,12 @@ if(localStorage.getItem('theme')==='light') document.body.classList.add('light')
 function toggleTheme(){
  document.body.classList.toggle('light');
  localStorage.setItem('theme', document.body.classList.contains('light')?'light':'dark');
+}
+
+// POPUP
+function togglePopup(){
+ const popup = document.getElementById('playlistPopup');
+ popup.style.display = popup.style.display==='none'?'block':'none';
 }
 
 // PLAYLIST STORAGE
@@ -163,6 +190,7 @@ function deletePlaylist(i){
 
 // LOAD PLAYLIST
 function loadPlaylist(i){
+ togglePopup(); // close popup on load
  const url = playlists[i].url;
  fetch(url).then(r=>r.text()).then(d=>{
    allChannels=[];
