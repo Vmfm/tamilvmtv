@@ -37,7 +37,12 @@ body{background:var(--bg);color:var(--text);font-family:sans-serif;margin:0;padd
 .header{
  background:var(--card);padding:10px;text-align:center;
 }
-.video-js{width:100%;height:220px;}
+/* PLAYER RESPONSIVE HEIGHT */
+#tvPlayer{
+ width:100%;
+ height:calc(100vh - 300px); /* Adjust player height to fill screen minus controls below */
+ max-height:600px; /* optional max-height */
+}
 
 /* APK */
 .apk-btn{
