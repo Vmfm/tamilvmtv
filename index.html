@@ -33,9 +33,14 @@ body{background:var(--bg);color:var(--text);font-family:sans-serif;margin:0;padd
 }
 #loader img{width:120px}
 
-/* HEADER */
+/* HEADER / PLAYER */
 .header{
- background:var(--card);padding:10px;text-align:center;
+ background:var(--card);
+ padding:10px;
+ text-align:center;
+ position:sticky;
+ top:0;
+ z-index:999;
 }
 .video-js{width:100%;height:220px;}
 
@@ -57,6 +62,13 @@ body{background:var(--bg);color:var(--text);font-family:sans-serif;margin:0;padd
 /* SEARCH & CATEGORY */
 .controls{padding:10px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
 .controls input, .controls select{flex:1;min-width:120px;padding:6px;border-radius:5px;border:1px solid var(--border);background:var(--card);color:var(--text);}
+
+/* CHANNEL LIST */
+.container {
+ max-height: calc(100vh - 320px); /* player + header height */
+ overflow-y: auto;
+ padding-bottom: 20px;
+}
 
 /* CHANNEL */
 .channel{
@@ -154,8 +166,6 @@ fetch(M3U_URL).then(r=>r.text()).then(d=>{
  });
  buildCategories();
  render();
-
- /* ✅ HIDE LOADER AFTER LOAD */
  document.getElementById('loader').style.display='none';
 });
 
@@ -204,13 +214,11 @@ function closePop(){
 }
 
 /* FILL BUTTON */
-const zoomBtn=player.controlBar.addChild('button',{});
-zoomBtn.addClass('vjs-control');
-zoomBtn.el().innerHTML='⛶';
-zoomBtn.el().title='Fill Screen';
-zoomBtn.onclick=()=>{
- document.body.classList.toggle('cover-mode');
-};
+const zoomBtn=player.controlBar.addChild('button',{}); 
+zoomBtn.addClass('vjs-control'); 
+zoomBtn.el().innerHTML='⛶'; 
+zoomBtn.el().title='Fill Screen'; 
+zoomBtn.onclick=()=>{document.body.classList.toggle('cover-mode');};
 
 /* AUTO ROTATE */
 player.on('fullscreenchange',()=>{
