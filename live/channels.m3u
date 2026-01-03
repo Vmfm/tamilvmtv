@@ -1,17 +1,17 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="ChenPlus" tvg-logo="https://vmfm.github.io/tamilvmtv/image/cenplus-tv-1.png" group-title="Unknown",Chen Plus
 https://view.apserver.in/tmp_hls7/chenplus/index.m3u8
-#EXTINF:-1 tvg-id="MeiAlai" group-title="Unknown",Mei Alai
+#EXTINF:-1 tvg-id="MeiAlai" tvg-logo="https://vmfm.github.io/tamilvmtv/image/mei-alai.png" group-title="Unknown",Mei Alai
 https://view.rcserver.in/tmp_hls24/meialai/index.m3u8
-#EXTINF:-1 tvg-id="RCMusic" group-title="Unknown",RC Music
+#EXTINF:-1 tvg-id="RCMusic" tvg-logo="https://vmfm.github.io/tamilvmtv/image/rc-music.png" group-title="Unknown",RC Music
 https://view.rcserver.in/tmp_hls2/stream/index.m3u8
 #EXTINF:-1 tvg-id="BSCOld" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1761725256_WhatsApp%2520Image%25202025-10-28%2520at%25206.09.48%2520PM.jpeg&w=1920&q=75" group-title="Unknown",BSC Old
 https://stream.onecloudlive.in/bschd/live/index.m3u8
 #EXTINF:-1 tvg-id="EnthiranTV" tvg-logo="https://play-lh.googleusercontent.com/epEjdtuFkTZxmirMjLmL75RB3qpTByhZ1rFGQvWrLV5Y5UjytOYJ_OUAz9PQExkFpqw=s512-rw" group-title="Kanyakumari",Enthiran TV
 https://live.applelive.in/enthirantv/enthirantv/index.m3u8
-#EXTINF:-1 tvg-id="STNTV" group-title="Unknown",STN TV
+#EXTINF:-1 tvg-id="STNTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/stn-tv-1.jpg" group-title="Unknown",STN TV
 https://play.applelive.in/stntv/stntv.m3u8
-#EXTINF:-1 tvg-id="MCNTV" group-title="Unknown",MCN TV
+#EXTINF:-1 tvg-id="MCNTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/mcn-tv.png" group-title="Unknown",MCN TV
 https://play.applelive.in/mcntv/mcntv.m3u8
 #EXTINF:-1 tvg-id="BassTV" tvg-logo="https://play-lh.googleusercontent.com/x6njvZ3CWH4ZYi8T5vfRdrpB9CVy3FBUwow_ExUZ3BoMVXxxVoo_7V5xmTaJ1Q2FuE7K=w480-h960-rw" group-title="Unknown",Bass TV
 https://anywhere.pwisetthon.com/http://xstream.onecloudlive.in:8080/bass/basstv/index.m3u8
