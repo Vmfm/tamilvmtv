@@ -1,5 +1,5 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="ChenPlus" tvg-logo="https://vmfm.github.io/tamilvmtv/image/cen-plus-tv.jpg" group-title="Unknown",Chen Plus
+#EXTINF:-1 tvg-id="ChenPlus" tvg-logo="https://vmfm.github.io/tamilvmtv/image/cenplus-tv-1.png" group-title="Unknown",Chen Plus
 https://view.apserver.in/tmp_hls7/chenplus/index.m3u8
 #EXTINF:-1 tvg-id="MeiAlai" group-title="Unknown",Mei Alai
 https://view.rcserver.in/tmp_hls24/meialai/index.m3u8
