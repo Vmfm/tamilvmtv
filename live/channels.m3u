@@ -1,13 +1,13 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="KovaiTV" group-title="Coimbatore",Kovai TV
+#EXTINF:-1 tvg-id="KovaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Kovai-TV.jpg" group-title="Coimbatore",Kovai TV
 https://account31.livebox.co.in/Kovaitvhls/live.m3u8
-#EXTINF:-1 tvg-id="MSMathanTV" group-title="Unknown",MS Mathan TV
+#EXTINF:-1 tvg-id="MSMathanTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/ms-mathan-tv.jpg" group-title="Unknown",MS Mathan TV
 https://anywhere.pwisetthon.com/http://madhantv.phoenixcreations.online/madhantv/madhantv/index.m3u8
-#EXTINF:-1 tvg-id="IrattaipathaiTV" group-title="Unknown",Irattaipaathai TV
+#EXTINF:-1 tvg-id="IrattaipathaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/irattaipathai.jpg" group-title="Unknown",Irattaipaathai TV
 https://account31.livebox.co.in/IRATTAIPAATHAITVhls/live.m3u8
 #EXTINF:-1 tvg-id="SriVelavanTV" tvg-logo="https://play-lh.googleusercontent.com/LKdTyr22bRnfBLGZov_I0yIZ10bGBsXXiS4JniiUUyJzW6qjiW7P_bH9bK0zfMNfC9DcLcd_Q3BrCaoz91nzWg=w480-h960-rw" group-title="Unknown",Sri Velavan TV
 https://rtmp.applelive.in/srivelavantvultrahd/srivelavantvultrahd/index.m3u8
-#EXTINF:-1 tvg-id="CTNConoor" group-title="Coonoor, Nilgiris Dist.",CTN Conoor
+#EXTINF:-1 tvg-id="CTNConoor" tvg-logo="https://vmfm.github.io/tamilvmtv/image/ctn-tamil.jpg" group-title="Coonoor, Nilgiris Dist.",CTN Conoor
 https://rtmp.bmlive.net/ctn/ctntn/stream.m3u8
 #EXTINF:-1 tvg-id="SenthurTV" tvg-logo="https://play-lh.googleusercontent.com/JBo67jHpHf_aPC7XBQJjmjl_KvrfmnZwe5zLYnadHC0Wj9ICpoTKCcNWvtDV7UnCGnjG=w512-h960-rw" group-title="Unknown",Senthur TV
 https://senthurtv-hls.suriyantv.in/live/senthurtv/index.m3u8
@@ -25,9 +25,9 @@ https://live.applelive.in/enthirantv/enthirantv/index.m3u8
 https://play.applelive.in/stntv/stntv.m3u8
 #EXTINF:-1 tvg-id="MCNTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/mcn-tv.png" group-title="Unknown",MCN TV
 https://play.applelive.in/mcntv/mcntv.m3u8
-#EXTINF:-1 tvg-id="JayamTVNamakkal" group-title="Namakkal",Jayam TV Namakkal
+#EXTINF:-1 tvg-id="JayamTVNamakkal" tvg-logo="https://vmfm.github.io/tamilvmtv/image/jayam namakkal.png" group-title="Namakkal",Jayam TV Namakkal
 https://rtmp.bmlive.net/bms/jayamtv/stream.m3u8
-#EXTINF:-1 tvg-id="EmperorTV" group-title="Unknown",Emperor TV
+#EXTINF:-1 tvg-id="EmperorTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/emperor-tv.jpg" group-title="Unknown",Emperor TV
 https://rtmp.bmlive.net/bms/emperortv/stream.m3u8
 #EXTINF:-1 tvg-id="JaiTV" tvg-logo="https://play-lh.googleusercontent.com/APcXUrNRsMykUbsTpJd32uF6VMRqvhVV_davBoS_pUR-HT55AXcJm8TDe1RFfx8X0w=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Jai TV
 https://play.applelive.in/jaitv/jaitv.m3u8
