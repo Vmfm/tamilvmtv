@@ -1,5 +1,5 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="ChenPlus" group-title="Unknown",Chen Plus
+#EXTINF:-1 tvg-id="ChenPlus" tvg-logo="https://vmfm.github.io/tamilvmtv/image/cen-plus-tv.jpg" group-title="Unknown",Chen Plus
 https://view.apserver.in/tmp_hls7/chenplus/index.m3u8
 #EXTINF:-1 tvg-id="BassTV" tvg-logo="https://play-lh.googleusercontent.com/x6njvZ3CWH4ZYi8T5vfRdrpB9CVy3FBUwow_ExUZ3BoMVXxxVoo_7V5xmTaJ1Q2FuE7K=w480-h960-rw" group-title="Unknown",Bass TV
 https://anywhere.pwisetthon.com/http://xstream.onecloudlive.in:8080/bass/basstv/index.m3u8
