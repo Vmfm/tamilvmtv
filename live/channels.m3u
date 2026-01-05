@@ -5,6 +5,10 @@ https://account31.livebox.co.in/Kovaitvhls/live.m3u8
 https://anywhere.pwisetthon.com/http://madhantv.phoenixcreations.online/madhantv/madhantv/index.m3u8
 #EXTINF:-1 tvg-id="IrattaipathaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/irattaipathai-1.png" group-title="Unknown",Irattaipaathai
 https://account31.livebox.co.in/IRATTAIPAATHAITVhls/live.m3u8
+#EXTINF:-1 tvg-id="HeartbeatTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Heartbeat TV.png" group-title="Unknown",HeartbeatTV
+https://rtmp.bmlive.net/bms/heartbeattv/stream.m3u8
+#EXTINF:-1 tvg-id="JhpTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/jhp-tv.png" group-title="Unknown",Jhp TV
+http://jhptv.7starcloud.com:1935/live/jhptv/chunklist_w410312323.m3u8
 #EXTINF:-1 tvg-id="SriVelavanTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/srivelavan-tv-1.png" group-title="Unknown",Sri Velavan TV
 https://rtmp.applelive.in/srivelavantvultrahd/srivelavantvultrahd/index.m3u8
 #EXTINF:-1 tvg-id="CTNConoor" tvg-logo="https://vmfm.github.io/tamilvmtv/image/ctn-tamil-1.png" group-title="Coonoor, Nilgiris Dist.",CTN Conoor
