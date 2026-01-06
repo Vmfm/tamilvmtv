@@ -41,19 +41,19 @@ https://live.olidigital.in/ctnchannel/ctnchannel/index.m3u8
 https://ipcloud.live/kingtv/kingtv/index.m3u8
 #EXTINF:-1 tvg-id="YatraTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1762598647_IMG-20251108-WA0090.jpg&w=1920&q=75" group-title="Unknown",Yatra TV
 https://live.rojatv.cloud/yatra/tv/index.m3u8
-#EXTINF:-1 tvg-id="SuriyanTV2" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Karur%20Suriyan%20Tv.jpg" group-title="Karur",Suriyan TV
+#EXTINF:-1 tvg-id="SuriyanTV2" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Karur_Suriyan_Tv.png" group-title="Karur",Suriyan TV
 https://view.rcserver.in/tmp_hls9/suriyantv/index.m3u8
-#EXTINF:-1 tvg-id="NRSChannel" tvg-logo="https://play-lh.googleusercontent.com/hXvjxy0OFZXXAg5JE7tKczHt9Ajpuw50X8yeQTfroUNXrIUwdOvh0kKfQRZ8PKAum29_=w512-h960-rw" group-title="Unknown",NRS Channel
+#EXTINF:-1 tvg-id="NRSChannel" tvg-logo="https://vmfm.github.io/tamilvmtv/image/nrs-tv.png" group-title="Unknown",NRS Channel
 https://notvstream.in/nrstv/nrstv.m3u8
-#EXTINF:-1 tvg-id="TiruppurVoiceTV" tvg-logo="https://play-lh.googleusercontent.com/7WwJlJcxOrQDjY2eOb1GNpLYQ_JF6fboUUmIb3b2R9tcdA_ewkTP94uCKXnbOw8mhaMw=w512-h960-rw" group-title="Tiruppur",Tiruppur Voice
+#EXTINF:-1 tvg-id="TiruppurVoiceTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/TiruppurVoiceTV.png" group-title="Tiruppur",Tiruppur Voice
 https://notvstream.in/tirupurvoicetv/tirupurvoicetv.m3u8
-#EXTINF:-1 tvg-id="MayuriTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1736220913.jpeg" group-title="Unknown",Mayuri TV
+#EXTINF:-1 tvg-id="MayuriTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/MayuriTV.png" group-title="Unknown",Mayuri TV
 https://server.sscloud7.in/live/mayuritvtvl/index.m3u8
-#EXTINF:-1 tvg-id="GTV" tvg-logo="https://tvchannel.in/wp-content/uploads/2025/03/gtv-kumbakonam-300x169.png" group-title="Kumbakonam",G TV
+#EXTINF:-1 tvg-id="GTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/gtv-kumbakonam.png" group-title="Kumbakonam",G TV
 https://live.singamcloud.in/gtv/gtv/index.m3u8
 #EXTINF:-1 tvg-id="SriVasanthTV" tvg-logo="https://play-lh.googleusercontent.com/RrIUDazd9z6EZaRewzOa9tjeJELR5qT2eJkukFRvRRIe1Odo4nJEjkguxwHVM1_SAty7=w480-h960-rw" group-title="Nagercoil; Kanyakumari Dist.",Sri Vasanth
 https://play.applelive.in/vasanthtv/vasanthtv.m3u8
-#EXTINF:-1 tvg-id="MDNTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/MDN-tv.png" group-title="Unknown",MDN TV
+#EXTINF:-1 tvg-id="MDNTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/MDN-tv-1 (2).png" group-title="Unknown",MDN TV
 https://account18.livebox.co.in/IMAGESEQUENCEhls/live.m3u8
 #EXTINF:-1 tvg-id="GarudanTV" tvg-logo="https://tamiltvchannels.com/img/Devotional%20H/Garudan.png" group-title="Nagercoil; Kanyakumari Dist.",Garudan TV
 https://play.applelive.in/hls/garudantv.m3u8
