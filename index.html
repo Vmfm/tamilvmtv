@@ -13,99 +13,184 @@
 
 <style>
 :root{
- --bg:#000;--card:#111;--text:#fff;--border:#333;
+ --bg:#0b0b0b;
+ --card:#141414;
+ --text:#fff;
+ --border:#2a2a2a;
+ --accent:#ff9800;
 }
 body.light{
- --bg:#f5f5f5;--card:#fff;--text:#000;--border:#ccc;
+ --bg:#f2f2f2;
+ --card:#ffffff;
+ --text:#000;
+ --border:#ddd;
 }
-body{background:var(--bg);color:var(--text);font-family:sans-serif;margin:0;padding:0}
+
+body{
+ background:var(--bg);
+ color:var(--text);
+ margin:0;
+ font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+}
 
 /* LOADER */
 #loader{
  position:fixed;
- top:0;left:0;
- width:100%;height:100%;
+ inset:0;
  background:#000;
  display:flex;
  align-items:center;
  justify-content:center;
- z-index:100000;
+ z-index:99999;
 }
-#loader img{width:120px}
+#loader img{width:110px}
 
-/* HEADER / PLAYER */
+/* HEADER + PLAYER */
 .header{
- background:var(--card);
- padding:10px;
- text-align:center;
+ background:linear-gradient(180deg,#000,#111);
+ padding:8px;
  position:sticky;
  top:0;
  z-index:999;
 }
-.video-js{width:100%;height:220px;}
+.video-js{
+ width:100%;
+ height:230px;
+ border-radius:12px;
+ overflow:hidden;
+}
 
-/* APK */
+/* APK BUTTON */
 .apk-btn{
- position:fixed;top:15px;left:15px;z-index:10001;
- background:#00c853;color:#000;
- padding:6px 12px;border-radius:20px;
- font-size:12px;font-weight:bold;text-decoration:none;
+ position:fixed;
+ top:12px;
+ left:12px;
+ z-index:10000;
+ background:#00e676;
+ color:#000;
+ padding:6px 14px;
+ border-radius:20px;
+ font-size:12px;
+ font-weight:700;
+ text-decoration:none;
+ box-shadow:0 4px 12px rgba(0,0,0,.4);
 }
 
-/* TOGGLE */
+/* THEME TOGGLE */
 .toggle-btn{
- position:fixed;top:15px;right:15px;z-index:10001;
- background:#ff9800;color:#000;
- border:none;padding:6px 12px;border-radius:20px;
+ position:fixed;
+ top:12px;
+ right:12px;
+ z-index:10000;
+ background:var(--accent);
+ border:none;
+ color:#000;
+ padding:6px 14px;
+ border-radius:20px;
+ font-size:12px;
+ box-shadow:0 4px 12px rgba(0,0,0,.4);
 }
 
-/* SEARCH & CATEGORY */
-.controls{padding:10px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-.controls input, .controls select{flex:1;min-width:120px;padding:6px;border-radius:5px;border:1px solid var(--border);background:var(--card);color:var(--text);}
+/* SEARCH + CATEGORY */
+.controls{
+ padding:10px;
+ display:flex;
+ gap:8px;
+}
+.controls input,
+.controls select{
+ flex:1;
+ background:var(--card);
+ color:var(--text);
+ border:1px solid var(--border);
+ border-radius:10px;
+ padding:8px 10px;
+ font-size:14px;
+}
 
 /* CHANNEL LIST */
-.container {
- max-height: calc(100vh - 320px); /* player + header height */
- overflow-y: auto;
- padding-bottom: 20px;
+.container{
+ max-height:calc(100vh - 310px);
+ overflow-y:auto;
+ padding-bottom:30px;
 }
 
-/* CHANNEL */
+/* CHANNEL CARD */
 .channel{
+ background:var(--card);
  border:1px solid var(--border);
- background:var(--card);margin-bottom:10px;
- text-align:center;cursor:pointer;padding:5px;
+ border-radius:14px;
+ padding:6px;
+ margin-bottom:12px;
+ cursor:pointer;
+ transition:.25s;
 }
-.channel img{width:100%;height:120px;object-fit:contain}
-.channel p{font-size:12px;margin:3px 0}
-.views{font-size:10px;color:#ff9800}
+.channel:hover{
+ transform:scale(1.04);
+ border-color:var(--accent);
+}
+.channel img{
+ width:100%;
+ height:120px;
+ object-fit:contain;
+ border-radius:10px;
+ background:#000;
+}
+.channel p{
+ margin:6px 0 2px;
+ font-size:12px;
+ font-weight:600;
+ text-align:center;
+}
+.views{
+ font-size:10px;
+ color:var(--accent);
+ text-align:center;
+}
 
 /* POP PLAYER */
 #popPlayer{
- position:fixed;bottom:20px;right:20px;
- width:260px;background:#000;
- border-radius:10px;display:none;
- z-index:99999;box-shadow:0 0 15px #000;
- cursor:move;
+ position:fixed;
+ bottom:15px;
+ right:15px;
+ width:260px;
+ background:#000;
+ border-radius:12px;
+ display:none;
+ z-index:99999;
+ box-shadow:0 0 20px rgba(0,0,0,.7);
 }
-#popPlayer video{width:100%;height:160px}
+#popPlayer video{width:100%;height:150px}
 #closePop{
- position:absolute;top:5px;right:5px;
- background:red;color:#fff;border:none;
- border-radius:50%;width:22px;height:22px;
+ position:absolute;
+ top:6px;
+ right:6px;
+ background:red;
+ color:#fff;
+ border:none;
+ width:22px;
+ height:22px;
+ border-radius:50%;
+ font-size:12px;
 }
 
 /* FULLSCREEN FILL */
 .vjs-tech{object-fit:contain}
 body.cover-mode .vjs-tech{object-fit:cover}
+
+/* SCROLL BAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{
+ background:var(--border);
+ border-radius:10px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 LOADER -->
 <div id="loader">
- <img src="https://vmfm.github.io/tamilvmtv/image/loading-loader.gif" alt="Loading...">
+ <img src="https://vmfm.github.io/tamilvmtv/image/loading-loader.gif">
 </div>
 
 <a class="apk-btn" href="https://apk.e-droid.net/apk_t/app1386869_2829.apk?v=16" target="_blank">
@@ -115,23 +200,20 @@ body.cover-mode .vjs-tech{object-fit:cover}
 <button class="toggle-btn" onclick="toggleTheme()">🌙 / ☀️</button>
 
 <div class="header">
- <h4 class="text-warning">TAMIL VM LIVE TV</h4>
  <video id="tvPlayer" class="video-js vjs-default-skin"
   controls autoplay playsinline webkit-playsinline></video>
 </div>
 
-<!-- POP PLAYER -->
 <div id="popPlayer">
  <button id="closePop" onclick="closePop()">✖</button>
  <video id="popVideo" class="video-js vjs-default-skin"
   controls playsinline webkit-playsinline></video>
 </div>
 
-<!-- CONTROLS BELOW PLAYER -->
 <div class="container mt-2">
  <div class="controls">
-  <input type="text" id="search" placeholder="Search channel">
-  <select id="category"><option value="all">All Categories</option></select>
+  <input type="text" id="search" placeholder="🔍 Search Channel">
+  <select id="category"><option value="all">All</option></select>
  </div>
  <div class="row" id="channelList"></div>
 </div>
@@ -139,96 +221,59 @@ body.cover-mode .vjs-tech{object-fit:cover}
 <script>
 const M3U_URL="https://vmfm.github.io/tamilvmtv/live/channels.m3u";
 const player=videojs('tvPlayer');
-const popPlayer=videojs('popVideo');
 let allChannels=[],views=JSON.parse(localStorage.getItem('views')||'{}');
-let currentSrc=null;
 
-/* THEME */
 if(localStorage.getItem('theme')==='light') document.body.classList.add('light');
 function toggleTheme(){
  document.body.classList.toggle('light');
  localStorage.setItem('theme',
-  document.body.classList.contains('light')?'light':'dark');
+ document.body.classList.contains('light')?'light':'dark');
 }
 
-/* LOAD M3U */
 fetch(M3U_URL).then(r=>r.text()).then(d=>{
  d.split('\n').forEach((l,i,a)=>{
   if(l.startsWith('#EXTINF')){
    allChannels.push({
     name:l.split(',').pop().trim(),
-    logo:(l.match(/tvg-logo="(.*?)"/)||[])[1]
-     ||'https://via.placeholder.com/300x200?text=TV',
+    logo:(l.match(/tvg-logo="(.*?)"/)||[])[1]||'https://via.placeholder.com/300x200?text=TV',
     group:(l.match(/group-title="(.*?)"/)||[])[1]||'Other',
     url:a[i+1]?.trim()
    });
   }
  });
- buildCategories();
- render();
- document.getElementById('loader').style.display='none';
-});
-
-/* CATEGORY */
-function buildCategories(){
  [...new Set(allChannels.map(c=>c.group))]
  .forEach(g=>$('#category').append(`<option>${g}</option>`));
-}
+ render();
+ $('#loader').hide();
+});
 
-/* RENDER */
 function render(){
- const s=$('#search').val().toLowerCase(),c=$('#category').val();
+ const s=$('#search').val().toLowerCase();
+ const c=$('#category').val();
  $('#channelList').html('');
- allChannels.filter(x=>(c==='all'||x.group===c)
- && x.name.toLowerCase().includes(s))
+ allChannels.filter(x=>(c==='all'||x.group===c)&&x.name.toLowerCase().includes(s))
  .forEach(x=>{
   $('#channelList').append(`
-   <div class="col-4 col-md-2">
-    <div class="channel" data-src="${x.url}" data-name="${x.name}">
-     <img src="${x.logo}">
-     <p>${x.name}</p>
-     <div class="views">👁 ${(views[x.name]||0)} views</div>
-    </div>
-   </div>`);
+  <div class="col-4 col-md-2">
+   <div class="channel" data-src="${x.url}" data-name="${x.name}">
+    <img src="${x.logo}">
+    <p>${x.name}</p>
+    <div class="views">👁 ${(views[x.name]||0)}</div>
+   </div>
+  </div>`);
  });
 }
 
 $('#search,#category').on('input change',render);
 
-/* PLAY */
 $(document).on('click','.channel',function(){
  const n=$(this).data('name');
- currentSrc=$(this).data('src');
  views[n]=(views[n]||0)+1;
  localStorage.setItem('views',JSON.stringify(views));
- render();
- player.src({src:currentSrc,type:'application/x-mpegURL'});
+ player.src({src:$(this).data('src'),type:'application/x-mpegURL'});
  player.play();
+ render();
  window.scrollTo({top:0,behavior:'smooth'});
-});
-
-/* CLOSE POP */
-function closePop(){
- popPlayer.pause();
- $('#popPlayer').hide();
-}
-
-/* FILL BUTTON */
-const zoomBtn=player.controlBar.addChild('button',{}); 
-zoomBtn.addClass('vjs-control'); 
-zoomBtn.el().innerHTML='⛶'; 
-zoomBtn.el().title='Fill Screen'; 
-zoomBtn.onclick=()=>{document.body.classList.toggle('cover-mode');};
-
-/* AUTO ROTATE */
-player.on('fullscreenchange',()=>{
- if(player.isFullscreen()){
-  document.body.classList.add('cover-mode');
-  screen.orientation?.lock('landscape').catch(()=>{});
- }else{
-  document.body.classList.remove('cover-mode');
-  screen.orientation?.unlock?.();
- }
 });
 </script>
 
