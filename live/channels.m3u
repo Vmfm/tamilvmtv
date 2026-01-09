@@ -1,6 +1,6 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="KovaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Kovai-TV-1.png" group-title="Coimbatore",Kovai TV
-https://account31.livebox.co.in/Kovaitvhls/live.m3u8
+#EXTINF:-1 tvg-id="DolphinTv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Dolphin Tv.png" group-title="Coimbatore",Dolphin Tv
+https://play.applelive.in/dolphintv/dolphintv.m3u8
 #EXTINF:-1 tvg-id="MSMathanTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/ms-mathan-tv-1.png" group-title="Unknown",MS Mathan
 https://anywhere.pwisetthon.com/http://madhantv.phoenixcreations.online/madhantv/madhantv/index.m3u8
 #EXTINF:-1 tvg-id="IrattaipathaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/irattaipathai-1.png" group-title="Unknown",Irattaipaathai
@@ -29,6 +29,18 @@ https://live.applelive.in/enthirantv/enthirantv/index.m3u8
 https://play.applelive.in/stntv/stntv.m3u8
 #EXTINF:-1 tvg-id="MCNTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/mcn-tv-1.png" group-title="Unknown",MCN TV
 https://play.applelive.in/mcntv/mcntv.m3u8
+#EXTINF:-1 tvg-id="khilatv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/khila-tv.png" group-title="Unknown",khila tv
+http://khilatv.phoenixcreations.online/khilatv/khilatv/playlist.m3u8
+#EXTINF:-1 tvg-id="maishatv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Manisha_Tv.png" group-title="Unknown",maisha tv
+https://stream.sscloud7.in/live/maishatv/index.m3u8
+#EXTINF:-1 tvg-id="Tamilnesantv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Tamilnesan TV.png" group-title="Unknown",Tamilnesan TV
+https://view.rcserver.in/tmp_hls14/tntv/index.m3u8
+#EXTINF:-1 tvg-id="Thiraitv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Thirai_TV.png" group-title="Unknown",Thirai TV
+https://view.apserver.in/tmp_hls2/thiraitv/index.m3u8
+#EXTINF:-1 tvg-id="Thiraiisai" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Thirai_TV.png" group-title="Unknown",Thirai Isai
+https://view.apserver.in/tmp_hls1/thiraitvplus/index.m3u8
+#EXTINF:-1 tvg-id="bktv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Thirai_TV.png" group-title="Unknown",BK TV
+https://view.apserver.in/tmp_hls3/bktv/index.m3u8
 #EXTINF:-1 tvg-id="JayamTVNamakkal" tvg-logo="https://vmfm.github.io/tamilvmtv/image/jayam namakkal.png" group-title="Namakkal",Jayam TV 
 https://rtmp.bmlive.net/bms/jayamtv/stream.m3u8
 #EXTINF:-1 tvg-id="EmperorTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/emperor-tv.jpg" group-title="Unknown",Emperor TV
@@ -1412,3 +1424,5 @@ https://view.apserver.in/tmp_hls16/chentv/index.m3u8
 https://anywhere.pwisetthon.com/http://xstream.onecloudlive.in:8080/bass/basstv/index.m3u8
 #EXTINF:-1 tvg-id="DeltaTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/dekta-tv.png" group-title="Unknown",Delta TV
 https://stream.onecloudlive.in/deltatv/deltatvhd/index.m3u8
+#EXTINF:-1 tvg-id="KovaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Kovai-TV-1.png" group-title="Coimbatore",Kovai TV
+https://account31.livebox.co.in/Kovaitvhls/live.m3u8
