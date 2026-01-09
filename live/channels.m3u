@@ -39,7 +39,7 @@ https://view.rcserver.in/tmp_hls14/tntv/index.m3u8
 https://view.apserver.in/tmp_hls2/thiraitv/index.m3u8
 #EXTINF:-1 tvg-id="Thiraiisai" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Thirai_TV.png" group-title="Unknown",Thirai Isai
 https://view.apserver.in/tmp_hls1/thiraitvplus/index.m3u8
-#EXTINF:-1 tvg-id="bktv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Thirai_TV.png" group-title="Unknown",BK TV
+#EXTINF:-1 tvg-id="bktv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/bk-tv.png" group-title="Unknown",BK TV
 https://view.apserver.in/tmp_hls3/bktv/index.m3u8
 #EXTINF:-1 tvg-id="JayamTVNamakkal" tvg-logo="https://vmfm.github.io/tamilvmtv/image/jayam namakkal.png" group-title="Namakkal",Jayam TV 
 https://rtmp.bmlive.net/bms/jayamtv/stream.m3u8
