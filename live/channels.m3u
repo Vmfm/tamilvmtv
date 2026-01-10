@@ -73,7 +73,7 @@ https://play.applelive.in/hls/garudantv.m3u8
 https://live.brightmeltech.in/gsjktv/gsjktv.m3u8
 #EXTINF:-1 tvg-id="SouthernTv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/SouthernTv.png" group-title="Unknown",Southern Tv
 https://player.mslivestream.net/mslive/9fe7c84b8253e88099d47237e0b7367c.sdp/playlist.m3u8
-#EXTINF:-1 tvg-id="ThalaaTv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/thala-tv.jpg" group-title="Unknown",Thalaa Tv
+#EXTINF:-1 tvg-id="ThalaaTv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/thalaa-tv.png" group-title="Unknown",Thalaa Tv
 https://streams2.sofast.tv/ptnr-yupptv/title-THALAA-TV-TAM_yupptv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/2069c593-3c07-4d62-9d44-746be5c3a5d6/manifest.m3u8
 #EXTINF:-1 tvg-id="singamtv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/singam_tv.png" group-title="Unknown",Singam tv
 http://brightmeltech.in/singamtv/singamtv.m3u8
@@ -97,11 +97,11 @@ https://anywhere.pwisetthon.com/http://198.144.149.206:8080/NOTV/AARTHITV/index.
 https://anywhere.pwisetthon.com/http://198.144.149.206:8080/NOTV/SKYTV/index.m3u8?token=GTR
 #EXTINF:-1 tvg-id="KanchiTV" tvg-logo="https://play-lh.googleusercontent.com/CgvOoJ4ewOfDSZi8OHbmkX6Ucxoqjt70abOuxNN1uPh3uvKnvuEhBOoZXjcCCRWOcq3J=w480-h960-rw" group-title="Unknown",Kanchi TV
 https://anywhere.pwisetthon.com/http://198.144.149.206:8080/NOTV/KANCHITV/index.m3u8?token=GTR
-#EXTINF:-1 tvg-id="YaalTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/yaal-tv.jpg" group-title="Unknown",Yaal TV
+#EXTINF:-1 tvg-id="YaalTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/yaal-tv.png" group-title="Unknown",Yaal TV
 https://anywhere.pwisetthon.com/http://198.144.149.206:8080/NOTV/YAALTV/index.m3u8?token=GTR
-#EXTINF:-1 tvg-id="RaghulTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/yaal-tv.jpg" group-title="Alangulam; Tenkasi Dist.",Raghul TV
+#EXTINF:-1 tvg-id="RaghulTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/raghul-tv.png" group-title="Alangulam; Tenkasi Dist.",Raghul TV
 https://anywhere.pwisetthon.com/http://alk.sscloud7.in/live/raghultv/index.m3u8
-#EXTINF:-1 tvg-id="A1TV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/A1-tv-1.png" group-title="Unknown",A1 TV
+#EXTINF:-1 tvg-id="A1TV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/A1-tv-2.png" group-title="Unknown",A1 TV
 https://anywhere.pwisetthon.com/http://stream.ashokadigital.net/aonetv/aonetvhd/index.m3u8
 #EXTINF:-1 tvg-id="BharathiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/bharathi-tv.png" group-title="Madurai",Bharathi TV
 https://stream.onecloudlive.in/karnan/bharathitv/index.m3u8
