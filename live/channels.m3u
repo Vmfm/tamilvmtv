@@ -1426,3 +1426,13 @@ https://anywhere.pwisetthon.com/http://xstream.onecloudlive.in:8080/bass/basstv/
 https://stream.onecloudlive.in/deltatv/deltatvhd/index.m3u8
 #EXTINF:-1 tvg-id="KovaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Kovai-TV-1.png" group-title="Coimbatore",Kovai TV
 https://account31.livebox.co.in/Kovaitvhls/live.m3u8
+#EXTINF:-1 tvg-id="fashiontv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/ftv.png" group-title="English",Fashion TV
+https://fashs043.cloudycdn.services/scte/africa/africa_chunklist.m3u8
+#EXTINF:-1 tvg-id="hbo" tvg-logo="https://vmfm.github.io/image/hbo.png" group-title="English",HBO
+http://88.212.7.11/live/test_hbo_hd_hevc/playlist.m3u8
+#EXTINF:-1 tvg-id="bikinitv" tvg-logo="https://vmfm.github.io/image/bikini-tv.png" group-title="English",bikini tv
+https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/kaloopy/c02c9f82-fcc3-4ec2-9fb1-6169ce54e935/0.m3u8
+#EXTINF:-1 tvg-id="actionhollywood" tvg-logo="https://vmfm.github.io/image/actionhollywoodmovoes (2).png" group-title="English",Actionhollywood
+https://amg01076-lightningintern-actionhollywood-samsungnz-82rry.amagi.tv/playlist/amg01076-lightningintern-actionhollywood-samsungnz/playlist.m3u8
+#EXTINF:-1 tvg-id="horrormovies" tvg-logo="https://vmfm.github.io/image/horror-movies.png" group-title="English",Horror movies
+http://api.toonamiaftermath.com:3000/movies/playlist.m3u8
