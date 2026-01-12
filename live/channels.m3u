@@ -1436,3 +1436,7 @@ https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c
 https://amg01076-lightningintern-actionhollywood-samsungnz-82rry.amagi.tv/playlist/amg01076-lightningintern-actionhollywood-samsungnz/playlist.m3u8
 #EXTINF:-1 tvg-id="horrormovies" tvg-logo="https://vmfm.github.io/tamilvmtv/image/horror-movies.png" group-title="English",Horror movies
 http://api.toonamiaftermath.com:3000/movies/playlist.m3u8
+#EXTINF:-1 tvg-id="miyamitv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/miyamitv-1.png" group-title="English",Miyami tv 
+https://59ec5453559f0.streamlock.net/JennyLive/_definst_/JennyLive/media_9264.m3u8
+#EXTINF:-1 tvg-id="miyamitv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/miyamitv-1.png" group-title="English",Miyami 2
+https://tgn.bozztv.com/trn03/gin-miamitv/tracks-v1a1/mono.m3u8?nimblesessionid=1397869329&wmsAuthSign=c2VydmVyX3RpbWU9MS8xMi8yMDI2IDE6NTU6MjMgUE0maGFzaF92YWx1ZT1KUm1uZGlLR0tIZ2VRWEw4cFhJa25nPT0mdmFsaWRtaW51dGVzPTE0NDAmc3RybV9sZW49MTc=
