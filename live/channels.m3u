@@ -1439,7 +1439,7 @@ http://api.toonamiaftermath.com:3000/movies/playlist.m3u8
 #EXTINF:-1 tvg-id="miyamitv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/miyamitv-1.png" group-title="English",Miyami tv 
 https://59ec5453559f0.streamlock.net/JennyLive/_definst_/JennyLive/media_9264.m3u8
 #EXTINF:-1 tvg-id="miyamitv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/miyamitv-1.png" group-title="English",Miyami 2
-https://tgn.bozztv.com/trn03/gin-miamitv/tracks-v1a1/mono.m3u8?nimblesessionid=1397869329&wmsAuthSign=c2VydmVyX3RpbWU9MS8xMi8yMDI2IDE6NTU6MjMgUE0maGFzaF92YWx1ZT1KUm1uZGlLR0tIZ2VRWEw4cFhJa25nPT0mdmFsaWRtaW51dGVzPTE0NDAmc3RybV9sZW49MTc=
+https://rpn3.bozztv.com/dvrfl07/ushba-t8/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="miyamitv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/miyamitv-1.png" group-title="English",Fashion
 https://59ec5453559f0.streamlock.net/miamitvfashion/_definst_/fashion/media_w162147991_9652.m3u8
 #EXTINF:-1 tvg-id="miyamitv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/miyamitv-1.png" group-title="English",miyami 1
