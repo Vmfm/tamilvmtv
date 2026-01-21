@@ -1426,6 +1426,120 @@ https://anywhere.pwisetthon.com/http://xstream.onecloudlive.in:8080/bass/basstv/
 https://stream.onecloudlive.in/deltatv/deltatvhd/index.m3u8
 #EXTINF:-1 tvg-id="KovaiTV" tvg-logo="https://vmfm.github.io/tamilvmtv/image/Kovai-TV-1.png" group-title="Coimbatore",Kovai TV
 https://account31.livebox.co.in/Kovaitvhls/live.m3u8
+#EXTINF:-1 tvg-id="TSNMusic" tvg-logo="" group-title="Unknown",TSN Music
+http://198.144.149.206:8080/NOTV/VAAGAI/index.m3u8?token=GTR
+#EXTINF:-1 tvg-id="AppuTV" tvg-logo="https://tataprime.files.wordpress.com/2024/02/20240222_1356268705171385431914312.png" group-title="Unknown" ,Appu TV
+http://198.144.149.206:8080/NOTV/IWORLDHD/index.m3u8?token=GTR
+#EXTINF:-1 tvg-id="PCNTV" tvg-logo="https://i.ibb.co/vcfjYB9/PCN.png" group-title="Unknown",PCN TV
+https://rtmp.bmlive.net/bms/pcn/stream.m3u8
+#EXTINF:-1 tvg-id="BamaTV" tvg-logo="https://tataprime.files.wordpress.com/2024/02/20240224_025831756712452387924318.png" group-title="Unknown",Bama TV
+http://indiamatrix.in/bamahd/bamahd.m3u8
+#EXTINF:-1 tvg-id="SmartSriTV" tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/02/1669967959_smart.jpg" group-title="Unknown",Smart Sri TV
+http://hdserver.7starcloud.com:1935/smart/tv/playlist.m3u8
+#EXTINF:-1 tvg-id="ManjuTV" tvg-logo="https://i.ibb.co/QvnKft4c/1000145860.png" group-title="Unknown",Manju TV
+https://stream.onecloudlive.in/manjutv/manjutv/index.m3u8
+#EXTINF:-1 tvg-id="JJeyam" group-title="Chennai",J Jeyam
+https://stream.singamcloud.in/jjeyam/jjeyam/index.m3u8
+#EXTINF:-1 tvg-id="JeyamPlus" group-title="TCCL Platform",Jeyam Plus
+https://stream.singamcloud.in/jeyamplus/jeyamplus/index.m3u8
+#EXTINF:-1 tvg-id="DJeyam" group-title="TCCL Platform",D Jeyam 
+https://stream.singamcloud.in/djeyam/djeyam/index.m3u8
+#EXTINF:-1 tvg-id="TharaniTV" group-title="Unknown",Tharani TV
+https://singamcloud.in/tharanitvtvl/tharanitvtvl/index.m3u8
+#EXTINF:-1 tvg-id="SMedia" group-title="Unknown",S Media
+https://stream.onecloudlive.in/stv/stvhd/index.m3u8
+#EXTINF:-1 tvg-id="RSTV" group-title="Unknown",RS TV
+https://stream.onecloudlive.in/rstv/rstvhd/index.m3u8
+#EXTINF:-1 tvg-id="RaagamFriendsTV" tvg-logo="https://play-lh.googleusercontent.com/KcLP_qcyDZDqAK5rQsn7OB-CDdnVUSbpZVl31u4g348U2zsIp5Ga1R_HEvNZxX8Ba88=w480-h960-rw" group-title="Unknown",Raagam Friends TV
+https://stream.onecloudlive.in/raagamtv/raagamtvhd/index.m3u8
+#EXTINF:-1 tvg-id="SuperstarTV" group-title="Unknown",Superstar TV
+https://stream.onecloudlive.in/superstartv/superstarhd/index.m3u8
+#EXTINF:-1 tvg-id="ME24Tamil" group-title="Unknown",ME24 Tamil
+https://stream.onecloudlive.in/orange/ME24TAMIL/index.m3u8
+#EXTINF:-1 tvg-id="KRNTV" group-title="Unknown",KRN TV
+https://stream.onecloudlive.in/krntv/krntvhd/index.m3u8
+#EXTINF:-1 tvg-id="ArammTV" tvg-logo="https://play-lh.googleusercontent.com/l8pRSESzaMShO9uvpib8hr5x9x8iltkzvVSQVewH5cYevDPFzmt1Aznr50utJchZbkTu=w512-h960-rw" group-title="Unknown",Aramm TV
+https://singamcloud.in/arammtv/arammtv/index.m3u8
+#EXTINF:-1 tvg-id="FortChannels" tvg-logo="https://i.ibb.co/Z6tyhWsq/1920x1080.png" group-title="Unknown",Fort Channels
+https://stream.onecloudlive.in/forttv/fortchannel/index.m3u8
+#EXTINF:-1 tvg-id="TigerTV" group-title="Unknown",Tiger TV
+https://stream.onecloudlive.in/tigertv/tigertvhd/index.m3u8
+#EXTINF:-1 tvg-id="AKTV" tvg-logo="https://play-lh.googleusercontent.com/Sa701M4EmCXAk4QPnWVoAR5yiBr9Wq5nvfEx0tGFsdyVPRRP4qsuwUn2dF_40hNmWw8=w480-h960-rw" group-title="Vellore",AK TV
+https://stream.onecloudlive.in/aktvhd/aktv/index.m3u8
+#EXTINF:-1 tvg-id="AadhavanColours" tvg-logo="https://play-lh.googleusercontent.com/nuubOwnutfaQfo3YS37g0og2JD_XeeOPlztGfHAPRiwKlxwyNUxbmHyvfo-zCfdBYUZ2ahHXrxVBvrr3ziz3prg=w512-h960-rw" group-title="Unknown",Aadhavan Colours
+https://live.olidigital.in/aadhavantvcolours/aadhavantvcolours/index.m3u8
+#EXTINF:-1 tvg-id="MKPTV" group-title="Unknown",MKP TV
+http://mkpcloud.publicvm.com:1935/mkptv/myStream/playlist.m3u8
+#EXTINF:-1 tvg-id="RVTamil" group-title="Unknown",RV Tamil
+https://ipcloud.live/rvtv/rvtvhd/index.m3u8
+#EXTINF:-1 tvg-id="SolaiTV" group-title="Unknown",Solai TV
+https://ipcloud.live/solaitv/solaihd/index.m3u8
+#EXTINF:-1 tvg-id="JeyamPlus2" tvg-logo="https://play-lh.googleusercontent.com/m0axMB9eZKt93L-twW_Tsl-F0S6_CP62DxHUW-nRe6toU-N8cAvPj2B1faU4ZeJyVDg=w512-h960-rw" group-title="Unknown",Jeyam Plus
+https://ipcloud.live/mmtv/jeyamplus/index.m3u8
+#EXTINF:-1 tvg-id="MallaiTV" group-title="Unknown" tvg-logo="https://i.ibb.co/QvTHJWhy/1000136573.jpg",Mallai TV
+https://rojatv.cloud/mallaitv/mallaitv/index.m3u8
+#EXTINF:-1 tvg-id="MMTV" tvg-logo="http://tnm3u.live/icon/tamil/local/mmtv.png" group-title="Unknown",MM TV
+https://ipcloud.live/mmtv/mmtvhd/index.m3u8
+#EXTINF:-1 tvg-id="SRMusix" tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240625_0713451452390300174130287.png" group-title="Unknown",SR Musix
+http://srnet.bmlive.net:1935/srmusic/myStream/playlist.m3u8
+#EXTINF:-1 tvg-id="SriKanchiTV" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_lIAx74zTRkb-dhjFWAHZ6XhmHwSkoLZT_fxJbcCfrAlw=s900-c-k-c0x00ffffff-no-rj" group-title="Unknown",Sri Kanchi
+https://live.maxtn.in/srikanchi/kanchi/index.m3u8
+#EXTINF:-1 tvg-id="SalaamTV" group-title="Islamic;Unknown",Salaam TV
+https://stream.onecloudlive.in/salamtv/salamtvhd/index.m3u8
+#EXTINF:-1 tvg-id="AthithootharTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1722055745.jpg" group-title="Christian;Chennai",Athithoothar TV
+https://server.sscloud7.in/live/athithoothartv/index.m3u8
+#EXTINF:-1 tvg-id="MahimaiMusic" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1725123817.PNG" group-title="Christian;Unknown",Mahimai Music
+https://stream.sscloud7.com/live/mahimaitv/index.m3u8
+#EXTINF:-1 tvg-id="BloodOfJesusTV" tvg-logo="https://sscloud7.in/app/sscloud7/assets/tvchannels/phoenixtv-tvchannelavathar-phoenixtv1732520813.png" group-title="Christian;Alangulam;Tenkasi",Blood Of Jesus TV
+http://alk.sscloud7.in/live/yovantv/playlist.m3u8
+#EXTINF:-1 tvg-id="MathaTV" tvg-logo="https://play-lh.googleusercontent.com/g5zYMmLwiKGcah_KvelGEB2ot1VTbB3HrjZpR2hs0qDevPM6eosAhs1TxXVLkO55sU4=w512-h960-rw" group-title="Christian;Unknown",Matha TV
+https://live.mathatv.in/mathatv/mathatv/index.m3u8
+#EXTINF:-1 tvg-id="CRSTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Crs%20TV.png" group-title="Christian;Unknown",CRS TV
+https://play.applelive.in/crstv/crstv.m3u8
+#EXTINF:-1 tvg-id="JoyGoodnewsTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Joygoodnews%20TV.png" group-title="Christian;Unknown",Joy Goodnews TV
+https://play.applelive.in/joygoodnewstv/joygoodnewstv.m3u8
+#EXTINF:-1 tvg-id="NanjilNathamTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Nanjilnatham%20TV.png" group-title="Christian;Unknown",Nanjil Natham TV
+https://play.applelive.in/hls/nanjilnathamtv.m3u8
+#EXTINF:-1 tvg-id="VACTV" tvg-logo="" group-title="Christian;Unknown",VAC TV
+https://play.applelive.in/shammahtv/shammahtv.m3u8
+#EXTINF:-1 tvg-id="JoyGoodnewsTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Joygoodnews%20TV.png" group-title="Christian;Unknown",Joy Goodnews TV
+https://play.applelive.in/mariyamathatv/mariyamathatv.m3u8
+#EXTINF:-1 tvg-id="DevaTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Deva TV HD.png" group-title="Christian;Thuckalay;Kanyakumari",Deva TV
+https://play.applelive.in/devatv/devatv.m3u8
+#EXTINF:-1 tvg-id="JesusTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Jesus%20TV.png" group-title="Christian;Marthandam;Kanyakumari",Jesus TV
+https://play.applelive.in/jesustv/jesustv.m3u8
+#EXTINF:-1 tvg-id="PraiseTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Praise%20TV.png" group-title="Christian;Unknown",Praise TV
+https://play.applelive.in/praisetv/praisetv.m3u8
+#EXTINF:-1 tvg-id="SharonTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Sharon%20TV.png" group-title="Christian;Unknown",Sharon TV
+https://sscloud7.com/live/sharontv/index.m3u8
+#EXTINF:-1 tvg-id="VinmeenMusic" tvg-logo="https://tamiltvchannels.com/img/devotional/Vinmeen%20Music.png" group-title="Christian;Unknown",Vinmeen Music
+https://vinmeentv.livebox.co.in/vinmeentvhls/live.m3u8
+#EXTINF:-1 tvg-id="JeevaOliTV" tvg-logo="https://tamiltvchannels.com/img/devotional/Jeevaoli%20TV.png" group-title="Christian;Unknown",Jeeva Oli TV
+https://jaeppiyar.livebox.co.in/jeevaolitvhls/live.m3u8
+#EXTINF:-1 tvg-id="JKingTV" tvg-logo="https://tamiltvchannels.com/img/devotional/jking%20tv.png" group-title="Christian;Unknown",J King TV
+https://live.brightmeltech.in/jkingtv/jkingtv.m3u8
+#EXTINF:-1 tvg-id="NithyaVelichamTV" tvg-logo="" group-title="Christian;Unknown",Nithya Velicham TV
+https://play.applelive.in/nithyavelichamtv/nithyavelichamtv.m3u8
+#EXTINF:-1 tvg-id="JCTVChristian" tvg-logo="https://i.ibb.co/tTrmrf8T/JCTV.png" group-title="Christian;Unknown",JC TV
+https://ipcloud.live/novamani/jctv/index.m3u8
+#EXTINF:-1 tvg-id="KingOfGloryTV" tvg-logo="https://i.ibb.co/dskmnfDV/KING-OF-GLORY-TV.png" group-title="Christian;Unknown",King Of Glory TV
+https://ipcloud.live/novamani/kingofglorytv/index.m3u8
+#EXTINF:-1 tvg-id="LoveJoyTV" tvg-logo="" group-title="Christian;Unknown",Love Joy TV
+https://ipcloud.live/novamani/lovejoytv/index.m3u8
+#EXTINF:-1 tvg-id="DivineMusic" tvg-logo="https://i.ibb.co/1GnTjyGf/DIVINE-TV.png" group-title="Christian;Unknown",Divine Music
+https://ipcloud.live/novamani/divinetv/index.m3u8
+#EXTINF:-1 tvg-id="JTKTV" tvg-logo="https://tavapi.inditechman.com/extras/images/jtktv.jpg" group-title="Christian;Unknown",JTK TV
+http://jtktv.indiamatrix.in/jtktvkay/jtktvkay.m3u8
+#EXTINF:-1 tvg-id="WinVisionTV" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240309_0118467600566896372655832.png" group-title="Christian;Nagercoil;Kanyakumari",Win Vision TV
+http://applelive.in/winvisiontv/winvisiontv.m3u8
+#EXTINF:-1 tvg-id="ShekinahTV" tvg-logo="" group-title="Christian;Unknown",Shekinah TV
+https://iptvhls.inet.moe/hls/newchannel.m3u8
+#EXTINF:-1 tvg-id="CrossTV" tvg-logo="" group-title="Christian;Unknown",Cross TV
+https://ytv.iptv.pics/hls/cross.m3u8
+#EXTINF:-1 tvg-id="GMax" tvg-logo="" group-title="Unknown",G Max
+https://play.applelive.in/gcv/gcv.m3u8
+#EXTINF:-1 tvg-id="JeyamTelevision" tvg-logo="https://anywhere.pwisetthon.com/http://jeyamtv.in/wp-content/uploads/2020/01/jeyam-tv-logo-e1581244005299.png" group-title="Christian;Unknown",Jeyam Television
+https://jeyamtv.livebox.co.in/JeyamTelevisionhls/JeyamTelevision.m3u8
 #EXTINF:-1 tvg-id="fashiontv" tvg-logo="https://vmfm.github.io/tamilvmtv/image/ftv.png" group-title="English",Fashion TV
 https://fashs043.cloudycdn.services/scte/africa/africa_chunklist.m3u8
 #EXTINF:-1 tvg-id="hbo" tvg-logo="https://vmfm.github.io/tamilvmtv/image/hbo.png" group-title="English",HBO
