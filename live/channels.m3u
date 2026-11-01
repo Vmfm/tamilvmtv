@@ -2,6 +2,38 @@
 #EXTM3U x-tvg-url="https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/refs/heads/main/epg.xml.gz"
 #EXTINF:-1 tvg-id="3201" tvg-name-ta="சனா டிவி" tvg-logo="https://raw.githubusercontent.com/amazeyourself/tamil-local-iptv/main/logos/SanaTV.svg" tvg-region="Panruti;Cuddalore" group-title="PLC",Sana TV
 https://stream.ottlive.co.in/sanatv/index.m3u8
+#EXTINF:-1 tvg-id="3359" tvg-name-ta="Raj Digital Plus" tvg-logo="https://vmfm.github.io/tamilvmtv/image/rajdigital.jpg" tvg-region="Panruti;Cuddalore" group-title="Movies",Raj Digital Plus
+https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/RajTV_Digital_plus/master_1.m3u8
+#EXTINF:-1 tvg-id="PolimerNews.in@SD",Polimer News (576p)
+https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/PolimerNews.m3u8
+#EXTINF:-1 tvg-id="PolimerTV.in@SD",Polimer TV (576p)
+https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/PolimerTV.m3u8
+#EXTINF:-1 tvg-id="DDTamil.in@HD",DD Tamil HD (1080p)
+https://cdn.pishow.tv/ott/live/1737/master.m3u8
+#EXTINF:-1 tvg-id="SathiyamTV.in@SD",Sathiyam TV (576p)
+https://mumt07.tangotv.in/zHjX9OFlSATHIYAMTV/index.m3u8
+#EXTINF:-1 tvg-id="PuthiyaThalaimurai.in@SD",Puthiya Thalaimurai (576p)
+https://mumt07.tangotv.in/zHjX9OFlPUTHIYATHALAIMURAI/index.m3u8
+#EXTINF:-1 tvg-id="PolimerNews.in@SD",Polimer News (576p)
+https://mumt05.tangotv.in/87NeALx2POLIMERNEWS/index.m3u8
+#EXTINF:-1 tvg-id="MalaiMurasuTV.in@SD",Malai Murasu TV (576p)
+https://mumt04.tangotv.in/m18aqlK4MALAIMURASUSEITHIGAL/index.m3u8
+#EXTINF:-1 tvg-id="News7Tamil.in@SD",News 7 Tamil (576p)
+https://mumt07.tangotv.in/zHjX9OFlNEWS7TAMIL/index.m3u8
+#EXTINF:-1 tvg-id="VelichamTV.in@SD",Velicham TV (576p)
+https://mumbai-edge.smartplaytv.in/Velichamtv/index.m3u8
+#EXTINF:-1 tvg-id="PuthiyaThalaimurai.in@SD",Puthiya Thalaimurai (576p)
+https://mumbai-edge.smartplaytv.in/Puthiyathalaimurai/index.m3u8
+#EXTINF:-1 tvg-id="ThanthiTV.in@SD",Thanthi TV (576p)
+https://mumt03.tangotv.in/Dsly5z3HTHANTHITV/index.m3u8
+#EXTINF:-1 tvg-id="TamilanTV.in@SD",Tamilan TV (576p)
+https://mumt04.tangotv.in/m18aqlK4TAMILANTELEVISION/index.m3u8
+#EXTINF:-1 tvg-id="ZeeTamil.in@HD",Zee Tamil HD (720p)
+https://da86m1sqpm3o0.cloudfront.net/28072023/smil:zeetamil1.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="TamilJanam.in@SD",Tamil Janam (576p)
+https://mumt01.tangotv.in/O5aw8Zn3JANAMTVTAMIL/index.m3u8
+#EXTINF:-1 tvg-id="News18TamilNadu.in@SD",News18 Tamil Nadu (1080p)
+https://n18syndication.akamaized.net/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8
 #EXTINF:-1 tvg-id="3359" tvg-name-ta="சனா பிளஸ்" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/sanaplus.png" tvg-region="Panruti;Cuddalore" group-title="Music",Sana Plus
 https://stream.ottlive.co.in/sanaplus/index.m3u8
 #EXTINF:-1 tvg-id="3393" tvg-name-ta="NTC டிவி" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ntvtamil.png" tvg-region="Pattukkottai;Thanjavur" group-title="PLC",NTC TV
